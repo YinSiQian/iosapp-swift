@@ -7,21 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B51E1601E559E6B00B1FCA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E15F1E559E6B00B1FCA2 /* AppDelegate.swift */; };
 		8B51E1621E559E6B00B1FCA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1611E559E6B00B1FCA2 /* ViewController.swift */; };
 		8B51E1651E559E6B00B1FCA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B51E1631E559E6B00B1FCA2 /* Main.storyboard */; };
 		8B51E1671E559E6B00B1FCA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B51E1661E559E6B00B1FCA2 /* Assets.xcassets */; };
 		8B51E16A1E559E6B00B1FCA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B51E1681E559E6B00B1FCA2 /* LaunchScreen.storyboard */; };
+		8B51E1891E55A54700B1FCA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1721E55A54700B1FCA2 /* AppDelegate.swift */; };
+		8B51E18B1E55A59700B1FCA2 /* SQDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E18A1E55A59700B1FCA2 /* SQDiscoverViewController.swift */; };
+		8B51E18D1E55A5E000B1FCA2 /* SQMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E18C1E55A5E000B1FCA2 /* SQMineViewController.swift */; };
+		8B51E18F1E55A5ED00B1FCA2 /* SQNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E18E1E55A5ED00B1FCA2 /* SQNewsViewController.swift */; };
+		8B51E1911E55A5FA00B1FCA2 /* SQTweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1901E55A5FA00B1FCA2 /* SQTweetsViewController.swift */; };
+		8B51E1931E55A67C00B1FCA2 /* SQRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1921E55A67C00B1FCA2 /* SQRootViewController.swift */; };
+		8B51E1951E55A70900B1FCA2 /* SQNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1941E55A70900B1FCA2 /* SQNavigationController.swift */; };
+		8B51E1971E55B06A00B1FCA2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1961E55B06A00B1FCA2 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8B51E15C1E559E6B00B1FCA2 /* iosapp-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iosapp-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B51E15F1E559E6B00B1FCA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B51E1611E559E6B00B1FCA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8B51E1641E559E6B00B1FCA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B51E1661E559E6B00B1FCA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B51E1691E559E6B00B1FCA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B51E16B1E559E6B00B1FCA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B51E1721E55A54700B1FCA2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B51E18A1E55A59700B1FCA2 /* SQDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQDiscoverViewController.swift; sourceTree = "<group>"; };
+		8B51E18C1E55A5E000B1FCA2 /* SQMineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQMineViewController.swift; sourceTree = "<group>"; };
+		8B51E18E1E55A5ED00B1FCA2 /* SQNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQNewsViewController.swift; sourceTree = "<group>"; };
+		8B51E1901E55A5FA00B1FCA2 /* SQTweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQTweetsViewController.swift; sourceTree = "<group>"; };
+		8B51E1921E55A67C00B1FCA2 /* SQRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQRootViewController.swift; sourceTree = "<group>"; };
+		8B51E1941E55A70900B1FCA2 /* SQNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQNavigationController.swift; sourceTree = "<group>"; };
+		8B51E1961E55B06A00B1FCA2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +68,13 @@
 		8B51E15E1E559E6B00B1FCA2 /* iosapp-swift */ = {
 			isa = PBXGroup;
 			children = (
-				8B51E15F1E559E6B00B1FCA2 /* AppDelegate.swift */,
+				8B51E1711E55A54700B1FCA2 /* Application */,
+				8B51E1741E55A54700B1FCA2 /* Main */,
+				8B51E1731E55A54700B1FCA2 /* Categories */,
+				8B51E1851E55A54700B1FCA2 /* Navigation */,
+				8B51E1861E55A54700B1FCA2 /* RootVC */,
+				8B51E1871E55A54700B1FCA2 /* Utils */,
+				8B51E1881E55A54700B1FCA2 /* Vendor */,
 				8B51E1611E559E6B00B1FCA2 /* ViewController.swift */,
 				8B51E1631E559E6B00B1FCA2 /* Main.storyboard */,
 				8B51E1661E559E6B00B1FCA2 /* Assets.xcassets */,
@@ -62,6 +82,191 @@
 				8B51E16B1E559E6B00B1FCA2 /* Info.plist */,
 			);
 			path = "iosapp-swift";
+			sourceTree = "<group>";
+		};
+		8B51E1711E55A54700B1FCA2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E1721E55A54700B1FCA2 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8B51E1731E55A54700B1FCA2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E1961E55B06A00B1FCA2 /* UIColor+Extension.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		8B51E1741E55A54700B1FCA2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E1751E55A54700B1FCA2 /* Discover */,
+				8B51E1791E55A54700B1FCA2 /* Mine */,
+				8B51E17D1E55A54700B1FCA2 /* News */,
+				8B51E1811E55A54700B1FCA2 /* Tweets */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8B51E1751E55A54700B1FCA2 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E1761E55A54700B1FCA2 /* Models */,
+				8B51E1771E55A54700B1FCA2 /* ViewControllers */,
+				8B51E1781E55A54700B1FCA2 /* Views */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		8B51E1761E55A54700B1FCA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B51E1771E55A54700B1FCA2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E18A1E55A59700B1FCA2 /* SQDiscoverViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B51E1781E55A54700B1FCA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B51E1791E55A54700B1FCA2 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E17A1E55A54700B1FCA2 /* Models */,
+				8B51E17B1E55A54700B1FCA2 /* ViewControllers */,
+				8B51E17C1E55A54700B1FCA2 /* Views */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		8B51E17A1E55A54700B1FCA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B51E17B1E55A54700B1FCA2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E18C1E55A5E000B1FCA2 /* SQMineViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B51E17C1E55A54700B1FCA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B51E17D1E55A54700B1FCA2 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E17E1E55A54700B1FCA2 /* Models */,
+				8B51E17F1E55A54700B1FCA2 /* ViewControllers */,
+				8B51E1801E55A54700B1FCA2 /* Views */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		8B51E17E1E55A54700B1FCA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B51E17F1E55A54700B1FCA2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E18E1E55A5ED00B1FCA2 /* SQNewsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B51E1801E55A54700B1FCA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B51E1811E55A54700B1FCA2 /* Tweets */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E1821E55A54700B1FCA2 /* Models */,
+				8B51E1831E55A54700B1FCA2 /* ViewControllers */,
+				8B51E1841E55A54700B1FCA2 /* Views */,
+			);
+			path = Tweets;
+			sourceTree = "<group>";
+		};
+		8B51E1821E55A54700B1FCA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B51E1831E55A54700B1FCA2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E1901E55A5FA00B1FCA2 /* SQTweetsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B51E1841E55A54700B1FCA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B51E1851E55A54700B1FCA2 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E1941E55A70900B1FCA2 /* SQNavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		8B51E1861E55A54700B1FCA2 /* RootVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B51E1921E55A67C00B1FCA2 /* SQRootViewController.swift */,
+			);
+			path = RootVC;
+			sourceTree = "<group>";
+		};
+		8B51E1871E55A54700B1FCA2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8B51E1881E55A54700B1FCA2 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +295,7 @@
 		8B51E1541E559E6B00B1FCA2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SQ;
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = ysq;
@@ -137,8 +343,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B51E18B1E55A59700B1FCA2 /* SQDiscoverViewController.swift in Sources */,
+				8B51E18F1E55A5ED00B1FCA2 /* SQNewsViewController.swift in Sources */,
+				8B51E1911E55A5FA00B1FCA2 /* SQTweetsViewController.swift in Sources */,
+				8B51E1971E55B06A00B1FCA2 /* UIColor+Extension.swift in Sources */,
+				8B51E18D1E55A5E000B1FCA2 /* SQMineViewController.swift in Sources */,
+				8B51E1931E55A67C00B1FCA2 /* SQRootViewController.swift in Sources */,
+				8B51E1891E55A54700B1FCA2 /* AppDelegate.swift in Sources */,
 				8B51E1621E559E6B00B1FCA2 /* ViewController.swift in Sources */,
-				8B51E1601E559E6B00B1FCA2 /* AppDelegate.swift in Sources */,
+				8B51E1951E55A70900B1FCA2 /* SQNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +480,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ysq.iosapp-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -280,6 +494,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ysq.iosapp-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
