@@ -20,6 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = SQRootViewController()
         window?.makeKeyAndVisible()
+        
+        /*****************控件外观设置*************/
+        UIApplication.shared.statusBarStyle = .lightContent
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UINavigationBar.appearance().barTintColor = UIColor.init(hex6: 0x24CF5F)
+        
         return true
     }
 

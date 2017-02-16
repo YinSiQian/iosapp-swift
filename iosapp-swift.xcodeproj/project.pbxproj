@@ -19,6 +19,7 @@
 		8B51E1931E55A67C00B1FCA2 /* SQRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1921E55A67C00B1FCA2 /* SQRootViewController.swift */; };
 		8B51E1951E55A70900B1FCA2 /* SQNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1941E55A70900B1FCA2 /* SQNavigationController.swift */; };
 		8B51E1971E55B06A00B1FCA2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1961E55B06A00B1FCA2 /* UIColor+Extension.swift */; };
+		8B6FC7131E55EA7900378CDB /* SQBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8B51E1921E55A67C00B1FCA2 /* SQRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQRootViewController.swift; sourceTree = "<group>"; };
 		8B51E1941E55A70900B1FCA2 /* SQNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQNavigationController.swift; sourceTree = "<group>"; };
 		8B51E1961E55B06A00B1FCA2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQBaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				8B51E1711E55A54700B1FCA2 /* Application */,
 				8B51E1741E55A54700B1FCA2 /* Main */,
 				8B51E1731E55A54700B1FCA2 /* Categories */,
+				8B6FC7111E55EA5D00378CDB /* Common */,
 				8B51E1851E55A54700B1FCA2 /* Navigation */,
 				8B51E1861E55A54700B1FCA2 /* RootVC */,
 				8B51E1871E55A54700B1FCA2 /* Utils */,
@@ -269,6 +272,14 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
+		8B6FC7111E55EA5D00378CDB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B51E18B1E55A59700B1FCA2 /* SQDiscoverViewController.swift in Sources */,
+				8B6FC7131E55EA7900378CDB /* SQBaseViewController.swift in Sources */,
 				8B51E18F1E55A5ED00B1FCA2 /* SQNewsViewController.swift in Sources */,
 				8B51E1911E55A5FA00B1FCA2 /* SQTweetsViewController.swift in Sources */,
 				8B51E1971E55B06A00B1FCA2 /* UIColor+Extension.swift in Sources */,
@@ -476,6 +488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KAN8WX649Q;
 				INFOPLIST_FILE = "iosapp-swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ysq.iosapp-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -490,6 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KAN8WX649Q;
 				INFOPLIST_FILE = "iosapp-swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ysq.iosapp-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -517,6 +531,7 @@
 				8B51E1701E559E6B00B1FCA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
