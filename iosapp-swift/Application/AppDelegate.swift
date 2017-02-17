@@ -20,6 +20,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = SQRootViewController()
         window?.makeKeyAndVisible()
+
+        //https://www.oschina.net/action/oauth2/authorize?response_type=code&client_id=CTTTL5ff4mOLA8ed7sCi&redirect_uri=http://baidu.com
+        
+        //https://www.oschina.net//action/openapi/token?client_id=CTTTL5ff4mOLA8ed7sCi&client_secret=mcoHHVkSINCuQFaz1RnVJ1bQ2zdLIjIzgrant_type=authorization_code&redirect_uri=http://baidu.com
+        //code=ZTiEBc
+        
+        //https://www.oschina.net/action/openapi/token?client_id=CTTTL5ff4mOLA8ed7sCi&client_secret=mcoHHVkSINCuQFaz1RnVJ1bQ2zdLIjIz&grant_type=authorization_code&redirect_uri=http://baidu.com&code=ZTiEBc&dataType=json
+        
+        //{"access_token":"769bc2f0-ada7-42e6-8d34-036273ad57a7","refresh_token":"2829da4a-5aad-4da0-b682-c063de8caecb","uid":2475593,"token_type":"bearer","expires_in":604799}
+        
+//        SQNetworkManager.shared.getRequest(urlString: "https://www.oschina.net/action/openapi/news_list?access_token=769bc2f0-ada7-42e6-8d34-036273ad57a7&catalog=2&page=1&pageSize=20&dataType=json", parameters: nil) { (success, json, error) in
+//            
+//        }
         
         /*****************控件外观设置*************/
         UIApplication.shared.statusBarStyle = .lightContent
