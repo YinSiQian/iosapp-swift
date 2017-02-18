@@ -17,9 +17,11 @@ class SQNetworkManager: NSObject {
     typealias compeletionHandler = (_ success: Bool, _ responseObject: JSON?, _ error: Error?) -> Void
     
     static let shared = SQNetworkManager()
-        
-    private override init() {
     
+    var dataRequest: Request?
+
+    private override init() {
+        
     }
 }
 
@@ -27,7 +29,7 @@ extension SQNetworkManager {
     
      func getRequest(urlString: String, parameters: [String: Any]?, compeletionHandler: @escaping compeletionHandler) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        Alamofire.request(urlString, method: .get, parameters: parameters)
+        self.dataRequest = Alamofire.request(urlString, method: .get, parameters: parameters)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseJSON { (response) in
@@ -43,6 +45,13 @@ extension SQNetworkManager {
                 }
         }
         
+    }
+    
+    func isAccessNetwork() -> Bool? {
+        return false
+    }
+    func cancel() {
+        self.dataRequest?.cancel()
     }
     
 }

@@ -28,8 +28,9 @@ class SQNewsTableViewCell: UITableViewCell {
     var model: SQNewsModel? {
         willSet(newModel) {
             self.title.text = newModel?.title
-            self.username.text = newModel?.author
+            self.username.text = "@" + (newModel?.author)!
             self.comment.text = newModel?.commentCount?.stringValue
+            self.time.text = SQUtils.timestamp(dateString: (newModel?.pubDate)!)
         }
     }
     

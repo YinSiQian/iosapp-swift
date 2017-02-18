@@ -51,7 +51,9 @@ class SQNewsViewController: UIViewController {
 }
 
 extension SQNewsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension SQNewsViewController: UITableViewDataSource {

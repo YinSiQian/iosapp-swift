@@ -27,6 +27,7 @@
 		8B51E1951E55A70900B1FCA2 /* SQNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1941E55A70900B1FCA2 /* SQNavigationController.swift */; };
 		8B51E1971E55B06A00B1FCA2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1961E55B06A00B1FCA2 /* UIColor+Extension.swift */; };
 		8B6FC7131E55EA7900378CDB /* SQBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */; };
+		8B9D36671E57E7100094C586 /* SQUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9D36661E57E7100094C586 /* SQUtils.swift */; };
 		8BC62D811E569D6900E5A5BE /* SQNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC62D801E569D6900E5A5BE /* SQNetworkManager.swift */; };
 		8BC62D851E56A40100E5A5BE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC62D841E56A40100E5A5BE /* Alamofire.framework */; };
 		8BC62D891E56A40900E5A5BE /* MJRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC62D881E56A40900E5A5BE /* MJRefresh.framework */; };
@@ -61,6 +62,7 @@
 		8B51E1941E55A70900B1FCA2 /* SQNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQNavigationController.swift; sourceTree = "<group>"; };
 		8B51E1961E55B06A00B1FCA2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQBaseViewController.swift; sourceTree = "<group>"; };
+		8B9D36661E57E7100094C586 /* SQUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQUtils.swift; sourceTree = "<group>"; };
 		8BC62D801E569D6900E5A5BE /* SQNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQNetworkManager.swift; sourceTree = "<group>"; };
 		8BC62D841E56A40100E5A5BE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/iosapp-swift-feykzivvortzyygrtvzylutdrqwu/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		8BC62D861E56A40500E5A5BE /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../Library/Developer/Xcode/DerivedData/iosapp-swift-feykzivvortzyygrtvzylutdrqwu/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 		8B51E1871E55A54700B1FCA2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8B9D36661E57E7100094C586 /* SQUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				8B51E1891E55A54700B1FCA2 /* AppDelegate.swift in Sources */,
 				8B2B97971E56E59A00C49822 /* SQNewsTableViewCell.swift in Sources */,
 				8B51E1621E559E6B00B1FCA2 /* ViewController.swift in Sources */,
+				8B9D36671E57E7100094C586 /* SQUtils.swift in Sources */,
 				8B51E1951E55A70900B1FCA2 /* SQNavigationController.swift in Sources */,
 				8B2B97921E56DE7900C49822 /* URLFiles.swift in Sources */,
 			);
