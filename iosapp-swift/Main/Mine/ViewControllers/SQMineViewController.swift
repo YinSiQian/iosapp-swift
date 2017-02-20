@@ -13,7 +13,6 @@ class SQMineViewController: SQBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let numbers = [1,2,3,4,5]
         
         loadData()
         // Do any additional setup after loading the view.

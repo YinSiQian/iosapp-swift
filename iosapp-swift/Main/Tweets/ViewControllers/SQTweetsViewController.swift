@@ -10,10 +10,28 @@ import UIKit
 
 class SQTweetsViewController: UIViewController {
 
+    
+    lazy var testLabl: UILabel! = {
+        let label = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: screen_width, height: screen_height))
+        label.text = "请检查网络"
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = UIColor.orange
+        label.isUserInteractionEnabled = true
+        let tag = UITapGestureRecognizer.init(target: self, action: #selector(tweet))
+        label.addGestureRecognizer(tag)
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+            view.addSubview(testLabl)
 
         // Do any additional setup after loading the view.
+    }
+    
+    func tweet() {
+        print("this is tweet")
     }
 
     override func didReceiveMemoryWarning() {

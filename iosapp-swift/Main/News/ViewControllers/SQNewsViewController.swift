@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SQNewsViewController: UIViewController {
+class SQNewsViewController: SQBaseViewController {
 
     var tableView: UITableView?
     lazy var modelArr = [SQNewsModel]()
@@ -22,7 +22,9 @@ class SQNewsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    func loadData() {
+    override func loadData() {
+        print("sub load request")
+
         SQNetworkManager.shared.getRequest(urlString: "https://www.oschina.net/action/openapi/news_list?access_token=769bc2f0-ada7-42e6-8d34-036273ad57a7&catalog=1&page=1&pageSize=20&dataType=json", parameters: nil) { (isSuccess, json, error) in
             if isSuccess {
                 let dataArr = json?["newslist"]

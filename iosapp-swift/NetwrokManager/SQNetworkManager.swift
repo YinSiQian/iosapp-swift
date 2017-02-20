@@ -27,7 +27,7 @@ class SQNetworkManager: NSObject {
 
 extension SQNetworkManager {
     
-     func getRequest(urlString: String, parameters: [String: Any]?, compeletionHandler: @escaping compeletionHandler) {
+     func getRequest(urlString: String, parameters: [String: Any]?, compeletionHandler:  @escaping compeletionHandler) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.dataRequest = Alamofire.request(urlString, method: .get, parameters: parameters)
             .validate(statusCode: 200..<300)
@@ -36,8 +36,8 @@ extension SQNetworkManager {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch response.result {
                 case .success(let value):
-                    //print(JSON(value))
                     let json = JSON(value)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: success_request_notification), object: nil)
                     compeletionHandler(true, json, nil)
                 case .failure(let error):
                     print(error)

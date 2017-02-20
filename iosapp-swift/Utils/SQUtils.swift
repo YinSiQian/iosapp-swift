@@ -12,7 +12,7 @@ class SQUtils: NSObject {
     
     static func timestamp(dateString: String) -> String {
         let dataFormatter = DateFormatter()
-        dataFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        dataFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dataFormatter.date(from: dateString)
         let timeInterval = date?.timeIntervalSince1970
         let now = NSDate()
