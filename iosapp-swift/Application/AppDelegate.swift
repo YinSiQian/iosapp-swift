@@ -13,7 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    lazy var launchImage: UIImageView? = {
+        let imageView = UIImageView.init(frame: UIScreen.main.bounds)
+        return imageView
+    }()
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow.init(frame: UIScreen.main.bounds)
@@ -21,19 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = SQRootViewController()
         window?.makeKeyAndVisible()
 
-        //https://www.oschina.net/action/oauth2/authorize?response_type=code&client_id=CTTTL5ff4mOLA8ed7sCi&redirect_uri=http://baidu.com
-        
-        //https://www.oschina.net//action/openapi/token?client_id=CTTTL5ff4mOLA8ed7sCi&client_secret=mcoHHVkSINCuQFaz1RnVJ1bQ2zdLIjIzgrant_type=authorization_code&redirect_uri=http://baidu.com
-        //code=ZTiEBc
-        
-        //https://www.oschina.net/action/openapi/token?client_id=CTTTL5ff4mOLA8ed7sCi&client_secret=mcoHHVkSINCuQFaz1RnVJ1bQ2zdLIjIz&grant_type=authorization_code&redirect_uri=http://baidu.com&code=ZTiEBc&dataType=json
-        
-        //{"access_token":"769bc2f0-ada7-42e6-8d34-036273ad57a7","refresh_token":"2829da4a-5aad-4da0-b682-c063de8caecb","uid":2475593,"token_type":"bearer","expires_in":604799}
-        
-//        SQNetworkManager.shared.getRequest(urlString: "https://www.oschina.net/action/openapi/news_list?access_token=769bc2f0-ada7-42e6-8d34-036273ad57a7&catalog=2&page=1&pageSize=20&dataType=json", parameters: nil) { (success, json, error) in
-//            
-//        }
-        
+        loadADImage()
+        showLaunchImage()
         /*****************控件外观设置*************/
         UIApplication.shared.statusBarStyle = .lightContent
         UINavigationBar.appearance().tintColor = UIColor.white
@@ -41,6 +35,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.init(hex6: 0x24CF5F)
         
         return true
+    }
+    
+    func loadADImage() {
+        let startView = AdverticeImage.init(frame: UIScreen.main.bounds)
+
+        SQNetworkManager.shared.getRequest(urlString: start_page, parameters: nil) { (success, json, error) in
+            let imageURL = json?["data"]["photo"]
+            print((imageURL?.string)! as String)
+            startView.imageView.kf.setImage(with: (imageURL?.string)!.url(), placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, type, url) in
+                self.window?.addSubview(startView)
+                self.launchImage?.removeFromSuperview()
+                self.launchImage = nil
+                startView.coundown()
+            })
+
+        }
+    }
+    
+    
+    func showLaunchImage() {
+        let viewSize = self.window?.bounds.size
+        let viewPrientation = "Portrait"
+        var launchName: String?
+        let imagasDict: NSArray = Bundle.main.infoDictionary?["UILaunchImages"] as! NSArray
+        for dict in imagasDict {
+            let infoDict = dict as! NSDictionary
+            let imageSize = CGSizeFromString(infoDict["UILaunchImageSize"] as! String)
+            let launchImageOrientation = infoDict["UILaunchImageOrientation"] as! String
+            if __CGSizeEqualToSize(imageSize, viewSize!) && viewPrientation == launchImageOrientation {
+                launchName = infoDict["UILaunchImageName"] as? String
+            }
+        }
+        launchImage?.image = UIImage.init(named: launchName!)
+        launchImage?.contentMode = .scaleAspectFill
+        window?.addSubview(launchImage!)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

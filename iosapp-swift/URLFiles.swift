@@ -8,3 +8,10 @@
 
 import Foundation
 
+import Kingfisher
+
+let start_page = "qyer/startpage/banner?count=20&page=1&photo_size=750.000000x1334.000000"
+
+let home_city_info = "qyer/home/home_city_info?city_ids=50&count=10&page=1"
+
+let home_feed = "qyer/home/home_feed?page=1&count=10"

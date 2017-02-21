@@ -12,7 +12,7 @@ class SQBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(successRequest), name: NSNotification.Name(rawValue: success_request_notification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SQBaseViewController.successRequest(noti:)), name: NSNotification.Name(rawValue: request_notification), object: nil)
         // Do any additional setup after loading the view.
     }
     
@@ -25,8 +25,9 @@ class SQBaseViewController: UIViewController {
         }
     }
     
-    func successRequest() {
-        print("success!")
+    func successRequest(noti: NSNotification) {
+        let result = noti.userInfo?["result"]
+        print(result as! String)
     }
     
     lazy var noNetworkAlert: UILabel! = {

@@ -12,8 +12,8 @@ import UIKit
 class SQNewsViewController: SQBaseViewController {
 
     var tableView: UITableView?
-    lazy var modelArr = [SQNewsModel]()
-    
+    var nearModel: NearRecommendModel?
+    var recommendModel: RecommendModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,17 +23,22 @@ class SQNewsViewController: SQBaseViewController {
     }
 
     override func loadData() {
-        print("sub load request")
 
-        SQNetworkManager.shared.getRequest(urlString: "https://www.oschina.net/action/openapi/news_list?access_token=769bc2f0-ada7-42e6-8d34-036273ad57a7&catalog=1&page=1&pageSize=20&dataType=json", parameters: nil) { (isSuccess, json, error) in
+        SQNetworkManager.shared.getRequest(urlString: home_city_info, parameters: nil) { (isSuccess, json, error) in
             if isSuccess {
-                let dataArr = json?["newslist"]
-                for item in dataArr! {
-                    let model = SQNewsModel.yy_model(with: item.1.dictionaryObject!)
-                    self.modelArr.append(model!)
-                }
-                self.tableView?.reloadData()
+                let data = json?["data"]
+                self.nearModel = NearRecommendModel.yy_model(with: (data?.dictionaryObject!)!)
+                
             }
+        }
+    }
+    
+    func loadRecommendData() {
+        SQNetworkManager.shared.getRequest(urlString: home_feed, parameters: nil) { (success, json, error) in
+            if success {
+                let data = json?["data"]
+                self.recommendModel = RecommendModel.yy_model(with: (data?.dictionaryObject)!)
+            } 
         }
     }
     
@@ -61,8 +66,8 @@ extension SQNewsViewController: UITableViewDelegate {
 extension SQNewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SQNewsTableViewCell
-        let model = modelArr[indexPath.row]
-        cell.model = model
+        //let model = modelArr[indexPath.row]
+        //cell.model = model
         return cell
     }
     
@@ -71,6 +76,6 @@ extension SQNewsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return modelArr.count
+        return 1
     }
 }

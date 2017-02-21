@@ -13,4 +13,4 @@ let screen_width = UIScreen.main.bounds.size.width
 
 let screen_height = UIScreen.main.bounds.size.height
 
-let success_request_notification = "success_request_notification"
+let request_notification = "request_notification"
