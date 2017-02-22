@@ -14,3 +14,5 @@ let screen_width = UIScreen.main.bounds.size.width
 let screen_height = UIScreen.main.bounds.size.height
 
 let request_notification = "request_notification"
+
+let ads_image = "ads_image"

@@ -35,6 +35,8 @@
 		8BD629471E5C1BDD00F0E5FA /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD629461E5C1BDD00F0E5FA /* RecommendModel.swift */; };
 		8BD629491E5C3EC400F0E5FA /* SQCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD629481E5C3EC400F0E5FA /* SQCycleScrollView.swift */; };
 		8BD6294B1E5C48F100F0E5FA /* RecommendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD6294A1E5C48F100F0E5FA /* RecommendHeaderView.swift */; };
+		8BF1A8B31E5D28C100894250 /* NearlyCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1A8B11E5D28C100894250 /* NearlyCityCell.swift */; };
+		8BF1A8B41E5D28C100894250 /* NearlyCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1A8B21E5D28C100894250 /* NearlyCityCell.xib */; };
 		B24DB912B758E92315618FD0 /* Pods_iosapp_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B58C59DDB5DDFF140D05B3D /* Pods_iosapp_swift.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,8 @@
 		8BD629461E5C1BDD00F0E5FA /* RecommendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
 		8BD629481E5C3EC400F0E5FA /* SQCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQCycleScrollView.swift; sourceTree = "<group>"; };
 		8BD6294A1E5C48F100F0E5FA /* RecommendHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendHeaderView.swift; sourceTree = "<group>"; };
+		8BF1A8B11E5D28C100894250 /* NearlyCityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearlyCityCell.swift; sourceTree = "<group>"; };
+		8BF1A8B21E5D28C100894250 /* NearlyCityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearlyCityCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +293,8 @@
 				8B2B97951E56E59A00C49822 /* SQNewsTableViewCell.swift */,
 				8B2B97961E56E59A00C49822 /* SQNewsTableViewCell.xib */,
 				8BD6294A1E5C48F100F0E5FA /* RecommendHeaderView.swift */,
+				8BF1A8B11E5D28C100894250 /* NearlyCityCell.swift */,
+				8BF1A8B21E5D28C100894250 /* NearlyCityCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -438,6 +444,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF1A8B41E5D28C100894250 /* NearlyCityCell.xib in Resources */,
 				8B2B97981E56E59A00C49822 /* SQNewsTableViewCell.xib in Resources */,
 				8B51E1671E559E6B00B1FCA2 /* Assets.xcassets in Resources */,
 			);
@@ -513,6 +520,7 @@
 				8BD6294B1E5C48F100F0E5FA /* RecommendHeaderView.swift in Sources */,
 				8B51E18D1E55A5E000B1FCA2 /* SQMineViewController.swift in Sources */,
 				8B51E1931E55A67C00B1FCA2 /* SQRootViewController.swift in Sources */,
+				8BF1A8B31E5D28C100894250 /* NearlyCityCell.swift in Sources */,
 				8BD629471E5C1BDD00F0E5FA /* RecommendModel.swift in Sources */,
 				8B51E1891E55A54700B1FCA2 /* AppDelegate.swift in Sources */,
 				8B2B97971E56E59A00C49822 /* SQNewsTableViewCell.swift in Sources */,

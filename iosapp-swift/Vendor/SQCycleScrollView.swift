@@ -20,7 +20,7 @@ class SQCycleScrollView: UIView {
     
     fileprivate var col: UICollectionView!
     
-    fileprivate var image_urls = [String]() {
+    var image_urls = [String]() {
         willSet {
             for url in newValue {
                 guard url.hasPrefix("http") || url.hasPrefix("https") else {
@@ -29,19 +29,19 @@ class SQCycleScrollView: UIView {
                 }
                 if newValue.count != 1 {
                     self.totalCount = newValue.count * 100
-                    self.isAuto = false
+
                 } else {
                     self.totalCount = 1
+                    self.isAuto = false
                 }
+                self.col.reloadData()
             }
         }
     }
     
-    var autoTime = 0.0 {
+    var autoTime = 3.0 {
         didSet {
-            if self.totalCount != 1 {
-                self.createTimer()
-            }
+            self.createTimer()
         }
     }
     
@@ -61,14 +61,14 @@ class SQCycleScrollView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        if self.totalCount != 1 {
-            col.scrollToItem(at: IndexPath.init(index: totalCount / 2), at: .centeredHorizontally, animated: false)
+        if self.totalCount != 1 && self.totalCount != 0  {
+            col.scrollToItem(at: IndexPath.init(index: totalCount / 2), at: .left, animated: false)
         }
     }
     
     private func setupSubviews() {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize.init(width: self.frame.width, height: self.frame.width)
+        layout.itemSize = CGSize.init(width: self.frame.width, height: self.frame.height)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         
@@ -85,20 +85,26 @@ class SQCycleScrollView: UIView {
     }
     
     func createTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: autoTime, repeats: true, block: {
-            (_) in
+        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: {
+           [unowned self] (_) in
+            if !self.isAuto {
+                self.timer?.invalidate()
+                return
+            }
             self.autoScroll()
         })
+        RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
     }
     
     private func autoScroll() {
+        print(#function)
         var index = currentIndex() + 1
         if index >= totalCount {
             index = totalCount / 2
-            col.scrollToItem(at: IndexPath.init(index: index), at: .centeredHorizontally, animated: false)
+            col.scrollToItem(at: IndexPath.init(index: index), at: .left, animated: false)
             return
         }
-        col.scrollToItem(at: IndexPath.init(index: index), at: .centeredHorizontally, animated: true)
+        col.scrollToItem(at: IndexPath.init(index: index), at: .left, animated: true)
     }
     
     private func currentIndex() -> Int {
@@ -111,7 +117,6 @@ class SQCycleScrollView: UIView {
             timer = nil
         }
     }
-
 }
 
 class CycleScrollCell: UICollectionViewCell {
@@ -136,13 +141,21 @@ extension SQCycleScrollView: UICollectionViewDelegate {
 
 extension SQCycleScrollView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(#function)
         return totalCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print(#function)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuse_id, for: indexPath) as! CycleScrollCell
-        let urlString = image_urls[indexPath.item]
-        cell.imageView?.kf.setImage(with: urlString.url())
+        var url = ""
+        if totalCount == 1 {
+            url = image_urls.first!
+        } else {
+            let index = indexPath.item % image_urls.count
+            url = image_urls[index]
+        }
+        cell.imageView?.kf.setImage(with: url.url())
         return cell
     }
 }
