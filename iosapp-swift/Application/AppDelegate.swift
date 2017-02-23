@@ -62,8 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    
-    
     func showLaunchImage() {
         let viewSize = self.window?.bounds.size
         let viewPrientation = "Portrait"

@@ -62,7 +62,7 @@ class SQCycleScrollView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         if self.totalCount != 1 && self.totalCount != 0  {
-            col.scrollToItem(at: IndexPath.init(index: totalCount / 2), at: .left, animated: false)
+            col.scrollToItem(at: IndexPath.init(row: totalCount / 2, section: 0), at: UICollectionViewScrollPosition(), animated: false)
         }
     }
     
@@ -101,10 +101,10 @@ class SQCycleScrollView: UIView {
         var index = currentIndex() + 1
         if index >= totalCount {
             index = totalCount / 2
-            col.scrollToItem(at: IndexPath.init(index: index), at: .left, animated: false)
+            col.scrollToItem(at: IndexPath.init(row: index, section: 0), at: .left, animated: false)
             return
         }
-        col.scrollToItem(at: IndexPath.init(index: index), at: .left, animated: true)
+        col.scrollToItem(at: IndexPath.init(row: index, section: 0), at: UICollectionViewScrollPosition(), animated: true)
     }
     
     private func currentIndex() -> Int {

@@ -16,4 +16,11 @@ extension String {
         }
         return URL(string: self)!
     }
+    
+    func isURL() -> Bool {
+        guard self.hasPrefix("http") || self.hasPrefix("https") else {
+            return false
+        }
+        return true
+    }
 }
