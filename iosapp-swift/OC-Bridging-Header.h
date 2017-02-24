@@ -10,5 +10,6 @@
 #define OC_Bridging_Header_h
 
 #import <YYModel/YYModel.h>
+#import "YYImage.h"
 
 #endif /* OC_Bridging_Header_h */

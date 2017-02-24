@@ -13,6 +13,7 @@ class RecommendHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor.white
         setupSubviews()
     }
     

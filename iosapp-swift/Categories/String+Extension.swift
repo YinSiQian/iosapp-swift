@@ -23,4 +23,13 @@ extension String {
         }
         return true
     }
+    
+    func width(font: UIFont) -> CGFloat {
+        let string = self as NSString
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 4
+        let attribute = [NSFontAttributeName: font, NSParagraphStyleAttributeName: style]
+        let size = string.boundingRect(with: CGSize(width: screen_width, height: screen_height), options: .usesLineFragmentOrigin, attributes: attribute, context: nil)
+        return size.width
+    }
 }

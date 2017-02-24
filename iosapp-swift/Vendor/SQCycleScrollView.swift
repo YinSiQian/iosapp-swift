@@ -14,7 +14,13 @@ class SQCycleScrollView: UIView {
     
     fileprivate var timer: Timer?
     
-    var isAuto = true
+    var isAuto = true {
+        willSet {
+            if !newValue {
+                invalidateTimer()
+            }
+        }
+    }
     
     fileprivate let reuse_id = "reuse_id"
     
@@ -97,7 +103,6 @@ class SQCycleScrollView: UIView {
     }
     
     private func autoScroll() {
-        print(#function)
         var index = currentIndex() + 1
         if index >= totalCount {
             index = totalCount / 2
@@ -116,6 +121,11 @@ class SQCycleScrollView: UIView {
             timer?.invalidate()
             timer = nil
         }
+    }
+    
+    deinit {
+        print("cycle view is dealloc")
+        timer = nil
     }
 }
 
@@ -141,12 +151,10 @@ extension SQCycleScrollView: UICollectionViewDelegate {
 
 extension SQCycleScrollView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(#function)
         return totalCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(#function)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuse_id, for: indexPath) as! CycleScrollCell
         var url = ""
         if totalCount == 1 {
@@ -173,3 +181,5 @@ extension SQCycleScrollView: UIScrollViewDelegate {
         }
     }
 }
+
+

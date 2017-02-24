@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.launchImage = nil
             startView.coundown()
         } else {
-            SQNetworkManager.shared.getRequest(urlString: start_page, parameters: nil) { (success, json, error) in
+            SQNetworkManager.getRequest(urlString: start_page, parameters: nil) { (success, json, error) in
                 let imageURL = json?["data"]["photo"]
                 //print((imageURL?.string)! as String)
                 startView.imageView.kf.setImage(with: (imageURL?.string)!.url(), placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, type, url) in

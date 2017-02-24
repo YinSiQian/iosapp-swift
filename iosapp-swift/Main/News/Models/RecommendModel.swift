@@ -13,10 +13,10 @@ class RecommendModel: NSObject {
     var slide: Array<SlideModel>?
     var keyword: String?
     var comment_entry: NSDictionary?
-    var entry: Array<FeedModel>?
+    var feed: FeedModel?
     
     public static func modelContainerPropertyGenericClass() -> [String : Any]? {
-        return ["slide": SlideModel.self, "entry": FeedModel.self]
+        return ["slide": SlideModel.self, "feed": FeedModel.self]
     }
     
 }
@@ -28,14 +28,24 @@ class SlideModel: NSObject {
 }
 
 class FeedModel: NSObject {
+    var total: NSNumber?
+    var entry: Array<EntryModel>?
+    var page: NSNumber?
+    
+    public static func modelContainerPropertyGenericClass() -> [String : Any]? {
+        return ["entry": EntryModel.self]
+    }
+}
+
+class EntryModel: NSObject {
     var id: NSNumber?
-    var type: String?
+    var type: NSNumber?
+    var column: String?
     var title: String?
     var url: String?
     var cover: String?
     var author: Dictionary<String, String>? = [:]
     var subject: String?
-    var subitems: Array<Any>?
     var icon_url: String?
     var up: NSNumber?
 }

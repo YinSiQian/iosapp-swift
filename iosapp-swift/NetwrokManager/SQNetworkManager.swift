@@ -14,12 +14,12 @@ import SwiftyJSON
 
 class SQNetworkManager: NSObject {
     
-    typealias compeletionHandler = (_ success: Bool, _ responseObject: JSON?, _ error: Error?) -> Void
+    typealias completionHandler = (_ success: Bool, _ responseObject: JSON?, _ error: Error?) -> Void
+    
+    typealias downloadHandler = (_ success: Bool, _ responseData: Data?, _ error: Error?) -> Void
     
     static let shared = SQNetworkManager()
     
-    var dataRequest: Request?
-
     private override init() {
         
     }
@@ -27,13 +27,13 @@ class SQNetworkManager: NSObject {
 
 extension SQNetworkManager {
     
-     func getRequest(urlString: String, parameters: [String: Any]?, compeletionHandler:  @escaping compeletionHandler) {
+     static func getRequest(urlString: String, parameters: [String: Any]?, compeletionHandler:  @escaping completionHandler) {
         
         let user = URLRouter(username: urlString)
                 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        self.dataRequest = Alamofire.request(user, method: .get, parameters: parameters)
+        Alamofire.request(user, method: .get, parameters: parameters)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseJSON { (response) in
@@ -52,11 +52,21 @@ extension SQNetworkManager {
         
     }
     
+    static func downloadWebP(urlString: String, completionHandler: @escaping downloadHandler) {
+        Alamofire.request(urlString, method: .get).responseData {
+            (responseData) in
+            switch responseData.result {
+            case .success(let value):
+                completionHandler(true, value, nil)
+            case .failure(let error):
+                completionHandler(false, nil, error)
+            }
+            
+        }
+    }
+    
     func isAccessNetwork() -> Bool? {
         return false
-    }
-    func cancel() {
-        self.dataRequest?.cancel()
     }
     
 }
