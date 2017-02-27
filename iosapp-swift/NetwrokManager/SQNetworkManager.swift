@@ -27,7 +27,7 @@ class SQNetworkManager: NSObject {
 
 extension SQNetworkManager {
     
-     static func getRequest(urlString: String, parameters: [String: Any]?, compeletionHandler:  @escaping completionHandler) {
+    func GET(urlString: String, parameters: [String: Any]?, compeletionHandler:  @escaping completionHandler) {
         
         let user = URLRouter(username: urlString)
                 
@@ -46,20 +46,21 @@ extension SQNetworkManager {
                 case .failure(let error):
                     print(error)
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: request_notification), object: nil, userInfo: ["result":"failure"])
-                    compeletionHandler(false, nil, error)
+                    //compeletionHandler(false, nil, error)
                 }
         }
         
     }
     
-    static func downloadWebP(urlString: String, completionHandler: @escaping downloadHandler) {
+    func downloadWebP(urlString: String, completionHandler: @escaping downloadHandler) {
         Alamofire.request(urlString, method: .get).responseData {
             (responseData) in
             switch responseData.result {
             case .success(let value):
                 completionHandler(true, value, nil)
             case .failure(let error):
-                completionHandler(false, nil, error)
+                print(error)
+                //completionHandler(false, nil, error)
             }
             
         }

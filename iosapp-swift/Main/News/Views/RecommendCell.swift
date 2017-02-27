@@ -26,7 +26,7 @@ class RecommendCell: UITableViewCell {
         // Initialization code
         shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowOffset = CGSize.init(width: 0, height: 2)
-        shadowView.layer.shadowOpacity = 1
+        shadowView.layer.shadowOpacity = 0.6
         shadowView.layer.shadowRadius = 2
         shadowView.layer.shouldRasterize = true
         
@@ -34,7 +34,7 @@ class RecommendCell: UITableViewCell {
 
     func setData(model: EntryModel?) {
         
-        SQNetworkManager.downloadWebP(urlString: (model?.cover!)!) {
+        SQNetworkManager.shared.downloadWebP(urlString: (model?.cover!)!) {
             [unowned self] (isSuccess, data, error) in
             if isSuccess {
                 let decoder = YYImageDecoder.init(data: data!, scale: 2.0)

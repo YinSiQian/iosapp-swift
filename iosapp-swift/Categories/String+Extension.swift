@@ -10,6 +10,9 @@ import Foundation
 
 extension String {
     func url() -> URL? {
+        if self == "" {
+            return URL(string: "")
+        }
         guard self.hasPrefix("http") || self.hasPrefix("https") else {
             assertionFailure("it is not a url String, please check this url string")
             return nil

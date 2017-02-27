@@ -25,7 +25,7 @@ class SQNewsViewController: SQBaseViewController {
     }
 
     override func loadData() {
-        SQNetworkManager.getRequest(urlString: home_city_info, parameters: nil) { [unowned self] (isSuccess, json, error) in
+        SQNetworkManager.shared.GET(urlString: home_city_info, parameters: nil) { [unowned self] (isSuccess, json, error) in
             if isSuccess {
                 let data = json?["data"]
                 self.nearModel = NearRecommendModel.yy_model(with: (data?.dictionaryObject!)!)
@@ -36,7 +36,7 @@ class SQNewsViewController: SQBaseViewController {
     
     func loadRecommendData() {
         let urlString = String(format: home_feed, page)
-        SQNetworkManager.getRequest(urlString: urlString, parameters: nil) {
+        SQNetworkManager.shared.GET(urlString: urlString, parameters: nil) {
             [unowned self] (success, json, error) in
             if success {
                 let data = json?["data"]
