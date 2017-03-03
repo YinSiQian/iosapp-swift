@@ -43,7 +43,7 @@ class RecommendCell: UITableViewCell {
             }
         }
         
-        icon.kf.setImage(with: model?.icon_url?.url())
+        icon.sd_setImage(with: model?.icon_url?.url())
         title.text = model?.title
         subTitle.text = model?.subject
         column.text = model?.column

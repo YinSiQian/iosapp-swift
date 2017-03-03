@@ -24,7 +24,8 @@ class OtherCityCell: UICollectionViewCell {
     }
     
     func setData(model: CityListModel?) {
-        icon.kf.setImage(with: model?.photo?.url())
+        //icon.kf.setImage(with: model?.photo?.url())
+        icon.sd_setImage(with: model?.photo?.url())
         cnname.text = model?.cnname
         enname.text = model?.enname
     }

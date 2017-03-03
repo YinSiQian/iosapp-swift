@@ -59,6 +59,8 @@
 		8BD629471E5C1BDD00F0E5FA /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD629461E5C1BDD00F0E5FA /* RecommendModel.swift */; };
 		8BD629491E5C3EC400F0E5FA /* SQCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD629481E5C3EC400F0E5FA /* SQCycleScrollView.swift */; };
 		8BD6294B1E5C48F100F0E5FA /* RecommendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD6294A1E5C48F100F0E5FA /* RecommendHeaderView.swift */; };
+		8BDC38B01E69140C00E0AA46 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDC38AF1E69140C00E0AA46 /* SDWebImage.framework */; };
+		8BDC38B21E69141100E0AA46 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDC38B11E69141100E0AA46 /* SnapKit.framework */; };
 		8BF1A8B31E5D28C100894250 /* NearlyCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1A8B11E5D28C100894250 /* NearlyCityCell.swift */; };
 		8BF1A8B41E5D28C100894250 /* NearlyCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1A8B21E5D28C100894250 /* NearlyCityCell.xib */; };
 		B24DB912B758E92315618FD0 /* Pods_iosapp_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B58C59DDB5DDFF140D05B3D /* Pods_iosapp_swift.framework */; };
@@ -129,6 +131,8 @@
 		8BD629461E5C1BDD00F0E5FA /* RecommendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
 		8BD629481E5C3EC400F0E5FA /* SQCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQCycleScrollView.swift; sourceTree = "<group>"; };
 		8BD6294A1E5C48F100F0E5FA /* RecommendHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendHeaderView.swift; sourceTree = "<group>"; };
+		8BDC38AF1E69140C00E0AA46 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../Library/Developer/Xcode/DerivedData/iosapp-swift-feykzivvortzyygrtvzylutdrqwu/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		8BDC38B11E69141100E0AA46 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../Library/Developer/Xcode/DerivedData/iosapp-swift-feykzivvortzyygrtvzylutdrqwu/Build/Products/Debug-iphoneos/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
 		8BF1A8B11E5D28C100894250 /* NearlyCityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearlyCityCell.swift; sourceTree = "<group>"; };
 		8BF1A8B21E5D28C100894250 /* NearlyCityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearlyCityCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +142,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDC38B21E69141100E0AA46 /* SnapKit.framework in Frameworks */,
+				8BDC38B01E69140C00E0AA46 /* SDWebImage.framework in Frameworks */,
 				8BCE1CAE1E5EE4650066772E /* libz.tbd in Frameworks */,
 				8BCE1CAC1E5EE45D0066772E /* MobileCoreServices.framework in Frameworks */,
 				8BCE1CAA1E5EE4540066772E /* Accelerate.framework in Frameworks */,
@@ -161,6 +167,8 @@
 		1AA828047CF0DA6A4CFF9EB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BDC38B11E69141100E0AA46 /* SnapKit.framework */,
+				8BDC38AF1E69140C00E0AA46 /* SDWebImage.framework */,
 				8BCE1CAD1E5EE4650066772E /* libz.tbd */,
 				8BCE1CAB1E5EE45D0066772E /* MobileCoreServices.framework */,
 				8BCE1CA91E5EE4540066772E /* Accelerate.framework */,
@@ -748,6 +756,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = KAN8WX649Q;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/YYModel",
@@ -773,6 +782,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = KAN8WX649Q;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/YYModel",

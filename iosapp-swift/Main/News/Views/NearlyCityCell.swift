@@ -101,24 +101,23 @@ class NearlyCityCell: UITableViewCell {
 
     func setData(model: NearRecommendModel?) {
         
-        
-        nearlyPlay.kf.setBackgroundImage(with: model?.tab?.first?.icon_url?.url(), for: .normal)
+        nearlyPlay.sd_setBackgroundImage(with: model?.tab?.first?.icon_url?.url(), for: .normal)
         play_name.text = model?.tab?.first?.name
         
-        nearlyFood.kf.setBackgroundImage(with: model?.tab?[1].icon_url?.url(), for: .normal)
+        nearlyFood.sd_setBackgroundImage(with: model?.tab?[1].icon_url?.url(), for: .normal)
         food_name.text = model?.tab?[1].name
         
-        nearlyGuide.kf.setBackgroundImage(with: model?.tab?[2].icon_url?.url(), for: .normal)
+        nearlyGuide.sd_setBackgroundImage(with: model?.tab?[2].icon_url?.url(), for: .normal)
         guide_name.text = model?.tab?[2].name
 
-        nearlyPoilike.kf.setBackgroundImage(with: model?.tab?[3].icon_url?.url(), for: .normal)
+        nearlyPoilike.sd_setBackgroundImage(with: model?.tab?[3].icon_url?.url(), for: .normal)
         poilike_name.text = model?.tab?[3].name
 
         nearly_city_1.setTitle(model?.recommend_city?.first?.city_name, for: .normal)
         nearly_city_2.setTitle(model?.recommend_city?[1].city_name, for: .normal)
         nearly_city_3.setTitle(model?.recommend_city?[2].city_name, for: .normal)
 
-        icon_city.kf.setImage(with: model?.cover?.url())
+        icon_city.sd_setImage(with: model?.cover?.url())
         name_city.text = model?.city_name
     }
     

@@ -11,5 +11,6 @@ pod 'MJRefresh', '~> 3.1.12'
 pod 'Kingfisher', '~> 3.2.4'
 pod 'SwiftyJSON', '~> 3.1.3'
 pod 'SnapKit', '~> 3.1.2'
+pod 'SDWebImage', '~> 4.0.0'
 
 end

@@ -163,7 +163,7 @@ extension SQCycleScrollView: UICollectionViewDataSource {
             let index = indexPath.item % image_urls.count
             url = image_urls[index]
         }
-        cell.imageView?.kf.setImage(with: url.url())
+        cell.imageView?.sd_setImage(with: url.url())
         return cell
     }
 }
