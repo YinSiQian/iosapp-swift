@@ -61,6 +61,12 @@
 		8BD6294B1E5C48F100F0E5FA /* RecommendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD6294A1E5C48F100F0E5FA /* RecommendHeaderView.swift */; };
 		8BDC38B01E69140C00E0AA46 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDC38AF1E69140C00E0AA46 /* SDWebImage.framework */; };
 		8BDC38B21E69141100E0AA46 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDC38B11E69141100E0AA46 /* SnapKit.framework */; };
+		8BE999C01E695DB8000CB6C6 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE999BF1E695DB8000CB6C6 /* CommunityViewController.swift */; };
+		8BE999C21E695E2B000CB6C6 /* BBSLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE999C11E695E2B000CB6C6 /* BBSLayoutViewController.swift */; };
+		8BE999C41E695F92000CB6C6 /* TitlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE999C31E695F92000CB6C6 /* TitlesView.swift */; };
+		8BE999C61E6970D4000CB6C6 /* DestinationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE999C51E6970D4000CB6C6 /* DestinationInfoView.swift */; };
+		8BE999C81E6974A5000CB6C6 /* BBSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE999C71E6974A5000CB6C6 /* BBSModel.swift */; };
+		8BE999CA1E6976DD000CB6C6 /* CommunityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE999C91E6976DD000CB6C6 /* CommunityModel.swift */; };
 		8BF1A8B31E5D28C100894250 /* NearlyCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1A8B11E5D28C100894250 /* NearlyCityCell.swift */; };
 		8BF1A8B41E5D28C100894250 /* NearlyCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1A8B21E5D28C100894250 /* NearlyCityCell.xib */; };
 		B24DB912B758E92315618FD0 /* Pods_iosapp_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B58C59DDB5DDFF140D05B3D /* Pods_iosapp_swift.framework */; };
@@ -133,6 +139,12 @@
 		8BD6294A1E5C48F100F0E5FA /* RecommendHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendHeaderView.swift; sourceTree = "<group>"; };
 		8BDC38AF1E69140C00E0AA46 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../Library/Developer/Xcode/DerivedData/iosapp-swift-feykzivvortzyygrtvzylutdrqwu/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		8BDC38B11E69141100E0AA46 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../Library/Developer/Xcode/DerivedData/iosapp-swift-feykzivvortzyygrtvzylutdrqwu/Build/Products/Debug-iphoneos/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
+		8BE999BF1E695DB8000CB6C6 /* CommunityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		8BE999C11E695E2B000CB6C6 /* BBSLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBSLayoutViewController.swift; sourceTree = "<group>"; };
+		8BE999C31E695F92000CB6C6 /* TitlesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitlesView.swift; sourceTree = "<group>"; };
+		8BE999C51E6970D4000CB6C6 /* DestinationInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationInfoView.swift; sourceTree = "<group>"; };
+		8BE999C71E6974A5000CB6C6 /* BBSModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBSModel.swift; sourceTree = "<group>"; };
+		8BE999C91E6976DD000CB6C6 /* CommunityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityModel.swift; sourceTree = "<group>"; };
 		8BF1A8B11E5D28C100894250 /* NearlyCityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearlyCityCell.swift; sourceTree = "<group>"; };
 		8BF1A8B21E5D28C100894250 /* NearlyCityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearlyCityCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -285,6 +297,8 @@
 		8B51E1761E55A54700B1FCA2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8BE999C71E6974A5000CB6C6 /* BBSModel.swift */,
+				8BE999C91E6976DD000CB6C6 /* CommunityModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,6 +307,8 @@
 			isa = PBXGroup;
 			children = (
 				8B51E18A1E55A59700B1FCA2 /* SQDiscoverViewController.swift */,
+				8BE999BF1E695DB8000CB6C6 /* CommunityViewController.swift */,
+				8BE999C11E695E2B000CB6C6 /* BBSLayoutViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -300,6 +316,8 @@
 		8B51E1781E55A54700B1FCA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8BE999C31E695F92000CB6C6 /* TitlesView.swift */,
+				8BE999C51E6970D4000CB6C6 /* DestinationInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -618,16 +636,19 @@
 				8BD629491E5C3EC400F0E5FA /* SQCycleScrollView.swift in Sources */,
 				8B51E18B1E55A59700B1FCA2 /* SQDiscoverViewController.swift in Sources */,
 				8B4DEC1C1E63D3B500A23A1F /* CityCell.swift in Sources */,
+				8BE999C41E695F92000CB6C6 /* TitlesView.swift in Sources */,
 				8BD629401E5BD50200F0E5FA /* URLRouter.swift in Sources */,
 				8BCE1C9C1E5EE3A60066772E /* YYImage.m in Sources */,
 				8BCE1C9A1E5EE3A60066772E /* YYAnimatedImageView.m in Sources */,
 				8B2B979A1E56E5DF00C49822 /* SQNewsModel.swift in Sources */,
 				8BCE1C9D1E5EE3A60066772E /* YYImageCoder.m in Sources */,
+				8BE999C21E695E2B000CB6C6 /* BBSLayoutViewController.swift in Sources */,
 				8B6FC7131E55EA7900378CDB /* SQBaseViewController.swift in Sources */,
 				8BCE1C9E1E5EE3A60066772E /* YYSpriteSheetImage.m in Sources */,
 				8B2B97941E56DE9A00C49822 /* Common.swift in Sources */,
 				8B6D562A1E5EB8D300A67845 /* RecommendCell.swift in Sources */,
 				8B4DEC191E63C76400A23A1F /* PlaceModel.swift in Sources */,
+				8BE999C01E695DB8000CB6C6 /* CommunityViewController.swift in Sources */,
 				8BB199E51E600BD200D0D82B /* TagView.swift in Sources */,
 				8BD629451E5BEC5E00F0E5FA /* AdverticeImage.swift in Sources */,
 				8B51E18F1E55A5ED00B1FCA2 /* SQNewsViewController.swift in Sources */,
@@ -643,11 +664,14 @@
 				8B51E1931E55A67C00B1FCA2 /* SQRootViewController.swift in Sources */,
 				8BF1A8B31E5D28C100894250 /* NearlyCityCell.swift in Sources */,
 				8BB199E11E5FD07200D0D82B /* UIImage+Extension.swift in Sources */,
+				8BE999C61E6970D4000CB6C6 /* DestinationInfoView.swift in Sources */,
 				8BD629471E5C1BDD00F0E5FA /* RecommendModel.swift in Sources */,
 				8B51E1891E55A54700B1FCA2 /* AppDelegate.swift in Sources */,
 				8B2B97971E56E59A00C49822 /* SQNewsTableViewCell.swift in Sources */,
 				8B9D36671E57E7100094C586 /* SQUtils.swift in Sources */,
 				8B51E1951E55A70900B1FCA2 /* SQNavigationController.swift in Sources */,
+				8BE999CA1E6976DD000CB6C6 /* CommunityModel.swift in Sources */,
+				8BE999C81E6974A5000CB6C6 /* BBSModel.swift in Sources */,
 				8B2B97921E56DE7900C49822 /* URLFiles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

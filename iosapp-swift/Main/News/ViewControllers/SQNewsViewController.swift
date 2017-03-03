@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MJRefresh
 
 class SQNewsViewController: SQBaseViewController {
 
@@ -20,6 +20,7 @@ class SQNewsViewController: SQBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutSubviews()
+        setRefreshView()
         loadData()
         loadRecommendData()
     }
@@ -42,14 +43,16 @@ class SQNewsViewController: SQBaseViewController {
                 let data = json?["data"]
                 if self.page == 1 {
                     self.recommendModel = RecommendModel.yy_model(with: (data?.dictionaryObject)!)
+                    self.setHeaderViewData()
                 } else {
                     let model = RecommendModel.yy_model(with: (data?.dictionaryObject)!)
                     for item in (model?.feed?.entry!)! {
                         self.recommendModel?.feed?.entry?.append(item)
                     }
+                    self.tableView.mj_footer.endRefreshing()
+                    self.tableView.reloadData()
                 }
-                self.setHeaderViewData()
-            } 
+            }
         }
     }
     
@@ -60,7 +63,14 @@ class SQNewsViewController: SQBaseViewController {
     }
     
     func setRefreshView() {
-        
+        let footer = MJRefreshAutoNormalFooter.init {
+            [unowned self] in
+            self.page += 1
+            self.loadRecommendData()
+        }
+        tableView.mj_footer = footer
+        footer?.isAutomaticallyHidden = true
+        footer?.isAutomaticallyRefresh = true
     }
     
     func layoutSubviews() {
@@ -86,12 +96,14 @@ class SQNewsViewController: SQBaseViewController {
 }
 
 extension SQNewsViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension SQNewsViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "nearlyCityCell", for: indexPath)

@@ -28,11 +28,19 @@ extension String {
     }
     
     func width(font: UIFont) -> CGFloat {
+        return self.size(font: font).width
+    }
+    
+    func height(font: UIFont) -> CGFloat {
+        return self.size(font: font).height
+    }
+    
+    func size(font: UIFont) -> CGSize {
         let string = self as NSString
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 4
         let attribute = [NSFontAttributeName: font, NSParagraphStyleAttributeName: style]
-        let size = string.boundingRect(with: CGSize(width: screen_width, height: screen_height), options: .usesLineFragmentOrigin, attributes: attribute, context: nil)
-        return size.width
+        let rect = string.boundingRect(with: CGSize(width: screen_width, height: screen_height), options: .usesLineFragmentOrigin, attributes: attribute, context: nil)
+        return rect.size
     }
 }

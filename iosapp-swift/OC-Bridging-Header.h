@@ -12,5 +12,6 @@
 #import <YYModel/YYModel.h>
 #import "YYImage.h"
 #import <SDWebImage/SDWebImage-umbrella.h>
+#import <MJRefresh/MJRefresh.h>
 
 #endif /* OC_Bridging_Header_h */

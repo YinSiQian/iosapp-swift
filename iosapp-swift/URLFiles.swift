@@ -19,3 +19,7 @@ let home_city_info = "qyer/home/home_city_info?city_ids=50&count=10&page=1"
 let home_feed = "qyer/home/home_feed?page=%d&count=10"
 
 let home_place = "qyer/footprint/placehome?page=1&count=10"
+
+let hot_bbs = "qyer/community/hotbbs/index?page=%d&count=10"
+
+let bbs_list = "qyer/bbs/entry?page=1&count=20"

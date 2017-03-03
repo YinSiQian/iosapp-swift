@@ -13,7 +13,6 @@
 #import "MJRefreshBackGifFooter.h"
 #import "MJRefreshBackNormalFooter.h"
 #import "MJRefreshBackStateFooter.h"
-#import "MJRefreshGifHeader 2.h"
 #import "MJRefreshGifHeader.h"
 #import "MJRefreshNormalHeader.h"
 #import "MJRefreshStateHeader.h"

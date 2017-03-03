@@ -46,7 +46,6 @@ extension SQNetworkManager {
                 case .failure(let error):
                     print(error)
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: request_notification), object: nil, userInfo: ["result":"failure"])
-                    //compeletionHandler(false, nil, error)
                 }
         }
         
@@ -60,7 +59,6 @@ extension SQNetworkManager {
                 completionHandler(true, value, nil)
             case .failure(let error):
                 print(error)
-                //completionHandler(false, nil, error)
             }
             
         }
