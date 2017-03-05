@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = SQRootViewController()
         window?.makeKeyAndVisible()
+        
+        
 
 //        loadADImage()
 //        showLaunchImage()

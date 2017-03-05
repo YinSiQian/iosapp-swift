@@ -21,6 +21,7 @@ class RecommendCell: UITableViewCell {
     @IBOutlet weak var column: TagView!
     
     @IBOutlet weak var shadowView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,6 +30,7 @@ class RecommendCell: UITableViewCell {
         shadowView.layer.shadowOpacity = 0.6
         shadowView.layer.shadowRadius = 2
         shadowView.layer.shouldRasterize = true
+        self.selectionStyle = .none
         
     }
 
@@ -47,7 +49,6 @@ class RecommendCell: UITableViewCell {
         title.text = model?.title
         subTitle.text = model?.subject
         column.text = model?.column
-        
     }
     
     

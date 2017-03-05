@@ -14,6 +14,7 @@ class SQDiscoverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        automaticallyAdjustsScrollViewInsets = false
         setChildViewController()
         setupSubviews()
         // Do any additional setup after loading the view.
@@ -29,18 +30,20 @@ class SQDiscoverViewController: UIViewController {
         let titleView = TitlesView.init(titles: ["推荐", "进入版面"]) {
             (index) in
             print(index)
+            self.col.scrollToItem(at: IndexPath(row: index, section: 0), at: .left, animated: true)
         }
         navigationItem.titleView = titleView
         
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: screen_width, height: screen_height)
+        layout.itemSize = CGSize(width: screen_width, height: screen_height - 64)
         layout.scrollDirection = .horizontal
         
         col = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        col.backgroundColor = UIColor.white
+        col.backgroundColor = UIColor.orange
         col.delegate = self
         col.dataSource = self
+        col.isPagingEnabled = true
         view.addSubview(col)
         
         col.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")

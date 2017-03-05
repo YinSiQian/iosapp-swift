@@ -38,7 +38,6 @@ class SQTweetsViewController: UIViewController {
             }
             self.setupView()
             self.tableView.selectRow(at: IndexPath.init(row: self.selectIndex, section: 0), animated: false, scrollPosition: .top)
-            //self.tableView.reloadData()
         }
     }
     

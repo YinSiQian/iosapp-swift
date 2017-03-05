@@ -30,6 +30,7 @@ class RecommendHeaderView: UIView {
         buttonRect.origin.x = 10
         buttonRect.size.height = self.bounds.height - rect.height - 20
         buttonRect.size.width = self.bounds.width - 20
+        
         let button = UIButton.init(frame: buttonRect)
         button.setTitle("搜索目的地、锦囊、游记、特价、穷游er", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
@@ -38,6 +39,7 @@ class RecommendHeaderView: UIView {
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.orange.cgColor
         self.addSubview(button)
+        
         button.addTarget(self, action: #selector(RecommendHeaderView.showSearch), for: .touchUpInside)
     }
     

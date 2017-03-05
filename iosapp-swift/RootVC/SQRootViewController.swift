@@ -61,6 +61,7 @@ class SQRootViewController: UITabBarController {
             item.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.init(hex6:0x24CF5F, alpha: 1)], for: .selected)
             index += 1
         }
+        
         self.tabBar.items?[2].isEnabled = false
         addCenterButton(image: UIImage.init(named: "ic_nav_add")!)
     }

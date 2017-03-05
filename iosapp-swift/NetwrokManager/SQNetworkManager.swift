@@ -39,10 +39,12 @@ extension SQNetworkManager {
             .responseJSON { (response) in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch response.result {
+                    
                 case .success(let value):
                     let json = JSON(value)
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: request_notification), object: nil, userInfo: ["result":"success"])
                     compeletionHandler(true, json, nil)
+                    
                 case .failure(let error):
                     print(error)
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: request_notification), object: nil, userInfo: ["result":"failure"])
@@ -55,8 +57,10 @@ extension SQNetworkManager {
         Alamofire.request(urlString, method: .get).responseData {
             (responseData) in
             switch responseData.result {
+                
             case .success(let value):
                 completionHandler(true, value, nil)
+                
             case .failure(let error):
                 print(error)
             }
@@ -65,7 +69,7 @@ extension SQNetworkManager {
     }
     
     func isAccessNetwork() -> Bool? {
-        return false
+        return true
     }
     
 }

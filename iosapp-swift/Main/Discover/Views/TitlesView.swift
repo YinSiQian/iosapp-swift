@@ -53,7 +53,6 @@ class TitlesView: UIView {
                 button.isSelected = true
             }
             length += (space + width)
-            print(width, length, button)
         }
         length -= space
         self.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: length, height: 40))

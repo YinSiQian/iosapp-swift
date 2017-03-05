@@ -30,4 +30,8 @@ extension URLRouter: URLConvertible {
         let urlString = URLRouter.baseURLString + username! + userInfo
         return try urlString.asURL()
     }
+    
+    func url() -> String? {
+        return URLRouter.baseURLString + username! + userInfo
+    }
 }

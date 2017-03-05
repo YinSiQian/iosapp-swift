@@ -12,6 +12,16 @@ class BBSModel: NSObject {
 
     var id: NSNumber?
     var name: String?
+    var group: Array<GroupModel>?
+    
+    public static func modelContainerPropertyGenericClass() -> [String : Any]? {
+        return ["group": GroupModel.self]
+    }
+}
+
+class GroupModel: NSObject {
+    var id: NSNumber?
+    var name: String?
     var des: String?
     var total_threads: String?
     var photo: String?
@@ -24,7 +34,9 @@ class BBSModel: NSObject {
     public static func modelContainerPropertyGenericClass() -> [String : Any]? {
         return ["types": TypesModel.self]
     }
+
 }
+
 
 class TypesModel: NSObject {
     
