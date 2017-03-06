@@ -36,15 +36,24 @@ class SQDiscoverViewController: UIViewController {
         
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: screen_width, height: screen_height - 64)
+        layout.itemSize = CGSize(width: screen_width, height: screen_height - 64 - 49)
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         
-        col = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        var rect = view.bounds
+        rect.origin.y = 64
+        rect.size.height = screen_height - 64 - 49
+        
+        col = UICollectionView(frame: rect, collectionViewLayout: layout)
         col.backgroundColor = UIColor.orange
         col.delegate = self
         col.dataSource = self
         col.isPagingEnabled = true
         view.addSubview(col)
+        
+        print(col.frame)
         
         col.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
@@ -53,6 +62,12 @@ class SQDiscoverViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let index = Int(scrollView.contentOffset.x / screen_width)
+        let view = self.navigationItem.titleView as! TitlesView
+        view.selectedButton(with: index + 1)
     }
 
 }
@@ -72,6 +87,7 @@ extension SQDiscoverViewController: UICollectionViewDataSource {
             subview.removeFromSuperview()
         }
         let vc = self.childViewControllers[indexPath.item]
+        vc.view.frame = cell.bounds
         cell.contentView.addSubview(vc.view)
         return cell
     }

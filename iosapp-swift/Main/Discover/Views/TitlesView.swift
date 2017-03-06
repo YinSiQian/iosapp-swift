@@ -78,6 +78,8 @@ class TitlesView: UIView {
         for btn in btnArr {
             if btn.tag != with {
                 btn.isSelected = false
+            } else {
+                btn.isSelected = true
             }
         }
     }

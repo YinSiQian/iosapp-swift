@@ -30,6 +30,15 @@ class DestinationInfoView: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var model: GroupModel? {
+        willSet(newModel) {
+            icon.sd_setImage(with: newModel?.photo?.url())
+            count.text = newModel?.total_threads
+            des.text = newModel?.des
+            name.text = newModel?.name
+        }
+    }
+    
     fileprivate func setupSubviews() {
         icon = UIImageView()
         icon.layer.cornerRadius = 4
@@ -37,52 +46,55 @@ class DestinationInfoView: UITableViewCell {
         contentView.addSubview(icon)
         
         icon1 = UIImageView()
+        icon1.image = UIImage(named: "com_post_icon_9x11_")
         contentView.addSubview(icon1)
         
         name = UILabel()
         name.font = UIFont.boldSystemFont(ofSize: 12)
-        name.backgroundColor = UIColor.black
         contentView.addSubview(name)
         
         des = UILabel()
         des.font = UIFont.systemFont(ofSize: 10)
-        des.backgroundColor = UIColor.gray
         contentView.addSubview(des)
         
         count = UILabel()
         count.font = UIFont.systemFont(ofSize: 10)
-        count.backgroundColor = UIColor.gray
         contentView.addSubview(count)
         
     }
     
     fileprivate func makeConstraints() {
         icon.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(5)
-            make.bottom.equalTo(self).offset(-5)
-            make.left.equalTo(self).offset(5)
+            make.top.equalTo(self).offset(15)
+            make.bottom.equalTo(self).offset(-15)
+            make.left.equalTo(self).offset(15)
             make.width.equalTo(40)
         }
         
+        name.setContentCompressionResistancePriority(UILayoutPriorityFittingSizeLevel, for: UILayoutConstraintAxis.horizontal)
+        name.setContentHuggingPriority(UILayoutPriorityRequired, for: UILayoutConstraintAxis.horizontal)
         name.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(7)
+            make.top.equalTo(self).offset(15)
             make.left.equalTo(icon.snp.right).offset(10)
+            make.right.equalTo(icon1.snp.left).offset(-10).priority(250)
         }
         
         des.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self).offset(-7)
+            make.bottom.equalTo(self).offset(-15)
             make.left.equalTo(icon.snp.right).offset(10)
+            make.right.equalTo(self).offset(-10)
         }
         
+        count.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: UILayoutConstraintAxis.horizontal)
+        
         count.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(7)
-            make.right.equalTo(self).offset(-5)
+            make.top.equalTo(self).offset(15)
+            make.right.equalTo(self).offset(-10)
         }
         
         icon1.snp.makeConstraints { (make) in
             make.right.equalTo(count.snp.left).offset(-3)
-            make.top.equalTo(self).offset(7)
-            make.left.greaterThanOrEqualTo(self.name.snp.right).offset(10)
+            make.top.equalTo(self).offset(15)
         }
     }
 
