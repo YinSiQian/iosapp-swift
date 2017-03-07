@@ -10,11 +10,19 @@ import UIKit
 
 class RecommendHeaderView: UIView {
     
+    typealias handlerClickAction = (_ didIndex: Int) ->()
+    
+    var block: handlerClickAction?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         setupSubviews()
+    }
+    
+    convenience init(frame: CGRect, block: @escaping handlerClickAction) {
+        self.init(frame: frame)
+        self.block = block
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,8 +67,17 @@ class RecommendHeaderView: UIView {
             urls.append(model.photo!)
         }
         let cycleView = SQCycleScrollView.init(frame: rect)
+        cycleView.delegate = self
         cycleView.image_urls = urls
         cycleView.autoTime = 3.0
         self.addSubview(cycleView)
+        print(urls)
+    }
+}
+
+extension RecommendHeaderView: SQCycleScrollViewDelegate {
+    func cycleScrollView(_ cycleScrollView: SQCycleScrollView, didSelectedItem: Int) {
+        self.block?(didSelectedItem)
+        print(didSelectedItem)
     }
 }

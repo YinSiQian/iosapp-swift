@@ -34,6 +34,7 @@
 		8B6D562B1E5EB8D300A67845 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6D56291E5EB8D300A67845 /* RecommendCell.xib */; };
 		8B6FC7131E55EA7900378CDB /* SQBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */; };
 		8B9D36671E57E7100094C586 /* SQUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9D36661E57E7100094C586 /* SQUtils.swift */; };
+		8BB0D6871E6E994B00AA2619 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0D6861E6E994B00AA2619 /* WebViewController.swift */; };
 		8BB199E11E5FD07200D0D82B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB199E01E5FD07200D0D82B /* UIImage+Extension.swift */; };
 		8BB199E51E600BD200D0D82B /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB199E41E600BD200D0D82B /* TagView.swift */; };
 		8BC62D811E569D6900E5A5BE /* SQNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC62D801E569D6900E5A5BE /* SQNetworkManager.swift */; };
@@ -106,6 +107,7 @@
 		8B6D56291E5EB8D300A67845 /* RecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
 		8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQBaseViewController.swift; sourceTree = "<group>"; };
 		8B9D36661E57E7100094C586 /* SQUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQUtils.swift; sourceTree = "<group>"; };
+		8BB0D6861E6E994B00AA2619 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		8BB199E01E5FD07200D0D82B /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		8BB199E41E600BD200D0D82B /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		8BC62D801E569D6900E5A5BE /* SQNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQNetworkManager.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 			children = (
 				8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */,
 				8BB199E41E600BD200D0D82B /* TagView.swift */,
+				8BB0D6861E6E994B00AA2619 /* WebViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				8B51E1891E55A54700B1FCA2 /* AppDelegate.swift in Sources */,
 				8B2B97971E56E59A00C49822 /* SQNewsTableViewCell.swift in Sources */,
 				8B9D36671E57E7100094C586 /* SQUtils.swift in Sources */,
+				8BB0D6871E6E994B00AA2619 /* WebViewController.swift in Sources */,
 				8B51E1951E55A70900B1FCA2 /* SQNavigationController.swift in Sources */,
 				8BE999CA1E6976DD000CB6C6 /* CommunityModel.swift in Sources */,
 				8BE999C81E6974A5000CB6C6 /* BBSModel.swift in Sources */,

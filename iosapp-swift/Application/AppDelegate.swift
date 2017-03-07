@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
 
-//        loadADImage()
 //        showLaunchImage()
+//        loadADImage()
         /*****************控件外观设置*************/
         UIApplication.shared.statusBarStyle = .lightContent
         UINavigationBar.appearance().tintColor = UIColor.white
@@ -41,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func loadADImage() {
         let startView = AdverticeImage.init(frame: UIScreen.main.bounds)
-
         if (UserDefaults.standard.object(forKey: ads_image) != nil) {
             let image = UserDefaults.standard.object(forKey: ads_image) as! UIImage
             startView.imageView.image = image

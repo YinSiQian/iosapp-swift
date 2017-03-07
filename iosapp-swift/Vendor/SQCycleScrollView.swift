@@ -8,16 +8,32 @@
 
 import UIKit
 
-class SQCycleScrollView: UIView {
 
+@objc protocol SQCycleScrollViewDelegate: NSObjectProtocol {
+    @objc optional
+    
+    func cycleScrollView(_ cycleScrollView: SQCycleScrollView, didSelectedItem: Int)
+}
+
+
+class SQCycleScrollView: UIView {
+    
+    typealias didItemBlock = (_ index: Int) -> ()
+    
+    fileprivate var block: didItemBlock?
+
+    public weak var delegate: SQCycleScrollViewDelegate?
+    
     fileprivate var totalCount = 0
     
     fileprivate var timer: Timer?
     
     var isAuto = true {
         willSet {
-            if !newValue {
-                invalidateTimer()
+            invalidateTimer()
+            if newValue {
+                print(newValue)
+                createTimer()
             }
         }
     }
@@ -30,24 +46,26 @@ class SQCycleScrollView: UIView {
         willSet {
             for url in newValue {
                 guard url.hasPrefix("http") || url.hasPrefix("https") else {
-                    assertionFailure("url has error foramt")
+                    assertionFailure("this url is error foramt")
                     return
                 }
-                if newValue.count != 1 {
-                    self.totalCount = newValue.count * 100
-
-                } else {
-                    self.totalCount = 1
-                    self.isAuto = false
-                }
-                self.col.reloadData()
             }
+            if newValue.count != 1 && !newValue.isEmpty {
+                self.totalCount = newValue.count * 100
+            } else {
+                self.totalCount = 1
+                self.isAuto = false
+            }
+            let auto = self.isAuto
+            self.isAuto = auto
+            self.col.reloadData()
         }
     }
     
     var autoTime = 3.0 {
         didSet {
-            self.createTimer()
+            let auto = self.isAuto
+            self.isAuto = auto
         }
     }
     
@@ -59,6 +77,11 @@ class SQCycleScrollView: UIView {
     convenience init(frame: CGRect, imagesURL: [String]) {
         self.init(frame: frame)
         self.image_urls = imagesURL
+    }
+    
+    convenience init(frame: CGRect, imagesURL: [String], block: @escaping didItemBlock) {
+        self.init(frame: frame, imagesURL: imagesURL)
+        self.block = block
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -91,15 +114,17 @@ class SQCycleScrollView: UIView {
     }
     
     func createTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: {
-           [unowned self] (_) in
-            if !self.isAuto {
-                self.timer?.invalidate()
+      let timer = Timer.scheduledTimer(withTimeInterval: autoTime, repeats: true, block: {
+           [weak self] (_) in
+            if !(self?.isAuto)! {
+                self?.timer?.invalidate()
                 return
             }
-            self.autoScroll()
+            self?.autoScroll()
         })
-        RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
+        self.timer = timer
+        print(self.timer as Any)
+        RunLoop.main.add(self.timer!, forMode: RunLoopMode.commonModes)
     }
     
     private func autoScroll() {
@@ -117,15 +142,15 @@ class SQCycleScrollView: UIView {
     }
     
     func invalidateTimer() {
-        if (timer != nil) {
-            timer?.invalidate()
-            timer = nil
-        }
+        timer?.invalidate()
+        timer = nil
     }
     
     deinit {
-        print("cycle view is dealloc")
+        print(timer as Any)
+        timer?.invalidate()
         timer = nil
+        print("cycle view is dealloc")
     }
 }
 
@@ -145,7 +170,9 @@ class CycleScrollCell: UICollectionViewCell {
 
 extension SQCycleScrollView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let index = indexPath.item % image_urls.count
+        self.block?(index)
+        self.delegate?.cycleScrollView!(self, didSelectedItem: index)
     }
 }
 
@@ -156,13 +183,8 @@ extension SQCycleScrollView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuse_id, for: indexPath) as! CycleScrollCell
-        var url = ""
-        if totalCount == 1 {
-            url = image_urls.first!
-        } else {
-            let index = indexPath.item % image_urls.count
-            url = image_urls[index]
-        }
+        let index = indexPath.item % image_urls.count
+        let url = image_urls[index]
         cell.imageView?.sd_setImage(with: url.url())
         return cell
     }
@@ -177,7 +199,7 @@ extension SQCycleScrollView: UIScrollViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if isAuto {
-            self.createTimer()
+            self.timer?.fire()
         }
     }
 }

@@ -84,7 +84,12 @@ class SQNewsViewController: SQBaseViewController {
         view.addSubview(tableView)
         tableView.register(UINib.init(nibName: "NearlyCityCell", bundle: Bundle.main), forCellReuseIdentifier: "nearlyCityCell")
         tableView.register(UINib.init(nibName: "RecommendCell", bundle: Bundle.main), forCellReuseIdentifier: "recommendCell")
-        let headerView = RecommendHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: screen_width, height: 200))
+        
+        let headerView = RecommendHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: screen_width, height: 200)) {
+            (index) in
+            let vc = WebViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         tableView.tableHeaderView = headerView
     }
     

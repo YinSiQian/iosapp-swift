@@ -116,6 +116,8 @@ extension SQTweetsViewController: UITableViewDelegate {
 
 extension SQTweetsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = WebViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
         print(indexPath.item)
     }
     

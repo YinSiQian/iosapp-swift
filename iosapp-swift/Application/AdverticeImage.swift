@@ -42,16 +42,19 @@ class AdverticeImage: UIView {
     
     func coundown() {
         var times = 3
-        timer = Timer.scheduledTimer(withTimeInterval: 0.9, repeats: true, block: {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {
             [unowned self] (_) in
+            print(123)
+
             if times == 0 {
                 self.removed()
             }
             let title = "跳过" + " \(times)"
+            print(title)
             self.timeBtn.setTitle(title, for: .normal)
             times -= 1
-
         })
+        RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
     }
     
     func removed() {
