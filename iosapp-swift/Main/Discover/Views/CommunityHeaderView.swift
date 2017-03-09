@@ -33,6 +33,22 @@ class CommunityHeaderView: UIView {
     
     @IBOutlet weak var column5: UILabel!
     
+    var modelArr: [ColumnModel]? {
+        didSet {
+            let labelArr = [column1,column2,column3,column4,column5]
+            let btnArr = [column1_btn,column2_btn,column3_btn,column4_btn,column5_btn]
+
+            for (index, model) in (modelArr?.enumerated())! {
+                let label = labelArr[index]
+                label?.text = model.icon_type
+                
+                let btn = btnArr[index]
+                let urlString = model.iocn_pic
+                btn?.sd_setImage(with: urlString?.url(), for: .normal)
+            }
+            
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
