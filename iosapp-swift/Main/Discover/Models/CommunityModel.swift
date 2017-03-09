@@ -33,3 +33,11 @@ class RecommendCommunityModel: NSObject {
     var tag_name: String?
     var tag_cover: String?
 }
+
+class ColumnModel: NSObject {
+    var icon_type: String?
+    var icon: String?
+    var iocn_pic: String?
+    var link_url: String?
+    var sud_id: String?
+}

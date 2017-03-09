@@ -71,7 +71,6 @@ class RecommendHeaderView: UIView {
         cycleView.image_urls = urls
         cycleView.autoTime = 3.0
         self.addSubview(cycleView)
-        print(urls)
     }
 }
 

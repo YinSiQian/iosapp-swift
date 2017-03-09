@@ -123,7 +123,6 @@ class SQCycleScrollView: UIView {
             self?.autoScroll()
         })
         self.timer = timer
-        print(self.timer as Any)
         RunLoop.main.add(self.timer!, forMode: RunLoopMode.commonModes)
     }
     
@@ -148,7 +147,6 @@ class SQCycleScrollView: UIView {
     
     deinit {
         print(timer as Any)
-        timer?.invalidate()
         timer = nil
         print("cycle view is dealloc")
     }

@@ -81,8 +81,6 @@ class BBSLayoutViewController: SQBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-   
 }
 
 extension BBSLayoutViewController: UITableViewDataSource {
@@ -118,6 +116,8 @@ extension BBSLayoutViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == listTableView {
             selectedIndex = indexPath.row
+        } else {
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     

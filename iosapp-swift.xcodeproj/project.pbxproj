@@ -30,6 +30,9 @@
 		8B51E1931E55A67C00B1FCA2 /* SQRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1921E55A67C00B1FCA2 /* SQRootViewController.swift */; };
 		8B51E1951E55A70900B1FCA2 /* SQNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1941E55A70900B1FCA2 /* SQNavigationController.swift */; };
 		8B51E1971E55B06A00B1FCA2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E1961E55B06A00B1FCA2 /* UIColor+Extension.swift */; };
+		8B6CC8181E71289C007BF425 /* CommunityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CC8171E71289C007BF425 /* CommunityCell.swift */; };
+		8B6CC81C1E714BB1007BF425 /* CommunityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CC81B1E714BB1007BF425 /* CommunityHeaderView.swift */; };
+		8B6CC81E1E714BBD007BF425 /* CommunityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6CC81D1E714BBD007BF425 /* CommunityHeaderView.xib */; };
 		8B6D562A1E5EB8D300A67845 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D56281E5EB8D300A67845 /* RecommendCell.swift */; };
 		8B6D562B1E5EB8D300A67845 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6D56291E5EB8D300A67845 /* RecommendCell.xib */; };
 		8B6FC7131E55EA7900378CDB /* SQBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */; };
@@ -103,6 +106,9 @@
 		8B51E1921E55A67C00B1FCA2 /* SQRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQRootViewController.swift; sourceTree = "<group>"; };
 		8B51E1941E55A70900B1FCA2 /* SQNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQNavigationController.swift; sourceTree = "<group>"; };
 		8B51E1961E55B06A00B1FCA2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		8B6CC8171E71289C007BF425 /* CommunityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityCell.swift; sourceTree = "<group>"; };
+		8B6CC81B1E714BB1007BF425 /* CommunityHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityHeaderView.swift; sourceTree = "<group>"; };
+		8B6CC81D1E714BBD007BF425 /* CommunityHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityHeaderView.xib; sourceTree = "<group>"; };
 		8B6D56281E5EB8D300A67845 /* RecommendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
 		8B6D56291E5EB8D300A67845 /* RecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
 		8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQBaseViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +326,9 @@
 			children = (
 				8BE999C31E695F92000CB6C6 /* TitlesView.swift */,
 				8BE999C51E6970D4000CB6C6 /* DestinationInfoView.swift */,
+				8B6CC8171E71289C007BF425 /* CommunityCell.swift */,
+				8B6CC81B1E714BB1007BF425 /* CommunityHeaderView.swift */,
+				8B6CC81D1E714BBD007BF425 /* CommunityHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -572,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B6D562B1E5EB8D300A67845 /* RecommendCell.xib in Resources */,
+				8B6CC81E1E714BBD007BF425 /* CommunityHeaderView.xib in Resources */,
 				8B4DEC211E63FEE900A23A1F /* OtherCityCell.xib in Resources */,
 				8B4DEC1D1E63D3B500A23A1F /* CityCell.xib in Resources */,
 				8BF1A8B41E5D28C100894250 /* NearlyCityCell.xib in Resources */,
@@ -643,10 +653,12 @@
 				8BD629401E5BD50200F0E5FA /* URLRouter.swift in Sources */,
 				8BCE1C9C1E5EE3A60066772E /* YYImage.m in Sources */,
 				8BCE1C9A1E5EE3A60066772E /* YYAnimatedImageView.m in Sources */,
+				8B6CC81C1E714BB1007BF425 /* CommunityHeaderView.swift in Sources */,
 				8B2B979A1E56E5DF00C49822 /* SQNewsModel.swift in Sources */,
 				8BCE1C9D1E5EE3A60066772E /* YYImageCoder.m in Sources */,
 				8BE999C21E695E2B000CB6C6 /* BBSLayoutViewController.swift in Sources */,
 				8B6FC7131E55EA7900378CDB /* SQBaseViewController.swift in Sources */,
+				8B6CC8181E71289C007BF425 /* CommunityCell.swift in Sources */,
 				8BCE1C9E1E5EE3A60066772E /* YYSpriteSheetImage.m in Sources */,
 				8B2B97941E56DE9A00C49822 /* Common.swift in Sources */,
 				8B6D562A1E5EB8D300A67845 /* RecommendCell.swift in Sources */,
