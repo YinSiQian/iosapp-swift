@@ -39,12 +39,12 @@ class CommunityCell: UITableViewCell {
             post_time.text = model?.reply_time
             replys.text = model?.reply_num?.stringValue
             
+            //避免图片错位.
+            for item in images_arr {
+                item.removeFromSuperview()
+            }
             if !(model?.bigpic_arr?.isEmpty)! {
                 
-                //避免图片错位.
-                for item in images_arr {
-                    item.removeFromSuperview()
-                }
                 let space: CGFloat = 10.0
                 let image_width =
                     ((screen_width - 65 - 20) - space * 2.0) / 3

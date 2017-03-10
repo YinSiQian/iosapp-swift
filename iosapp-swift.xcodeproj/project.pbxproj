@@ -37,6 +37,7 @@
 		8B6D562B1E5EB8D300A67845 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6D56291E5EB8D300A67845 /* RecommendCell.xib */; };
 		8B6FC7131E55EA7900378CDB /* SQBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */; };
 		8B9D36671E57E7100094C586 /* SQUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9D36661E57E7100094C586 /* SQUtils.swift */; };
+		8BADC8A21E72926A000181F3 /* CommunityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BADC8A11E72926A000181F3 /* CommunityCardView.swift */; };
 		8BB0D6871E6E994B00AA2619 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0D6861E6E994B00AA2619 /* WebViewController.swift */; };
 		8BB199E11E5FD07200D0D82B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB199E01E5FD07200D0D82B /* UIImage+Extension.swift */; };
 		8BB199E51E600BD200D0D82B /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB199E41E600BD200D0D82B /* TagView.swift */; };
@@ -113,6 +114,7 @@
 		8B6D56291E5EB8D300A67845 /* RecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
 		8B6FC7121E55EA7900378CDB /* SQBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQBaseViewController.swift; sourceTree = "<group>"; };
 		8B9D36661E57E7100094C586 /* SQUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQUtils.swift; sourceTree = "<group>"; };
+		8BADC8A11E72926A000181F3 /* CommunityCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityCardView.swift; sourceTree = "<group>"; };
 		8BB0D6861E6E994B00AA2619 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		8BB199E01E5FD07200D0D82B /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		8BB199E41E600BD200D0D82B /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				8B6CC8171E71289C007BF425 /* CommunityCell.swift */,
 				8B6CC81B1E714BB1007BF425 /* CommunityHeaderView.swift */,
 				8B6CC81D1E714BBD007BF425 /* CommunityHeaderView.xib */,
+				8BADC8A11E72926A000181F3 /* CommunityCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				8BCE1C9E1E5EE3A60066772E /* YYSpriteSheetImage.m in Sources */,
 				8B2B97941E56DE9A00C49822 /* Common.swift in Sources */,
 				8B6D562A1E5EB8D300A67845 /* RecommendCell.swift in Sources */,
+				8BADC8A21E72926A000181F3 /* CommunityCardView.swift in Sources */,
 				8B4DEC191E63C76400A23A1F /* PlaceModel.swift in Sources */,
 				8BE999C01E695DB8000CB6C6 /* CommunityViewController.swift in Sources */,
 				8BB199E51E600BD200D0D82B /* TagView.swift in Sources */,

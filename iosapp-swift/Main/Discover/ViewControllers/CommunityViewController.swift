@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MJRefresh
 
 class CommunityViewController: SQBaseViewController {
 
@@ -23,6 +24,7 @@ class CommunityViewController: SQBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
+        setRefreshView()
         loadData()
         // Do any additional setup after loading the view.
     }
@@ -34,34 +36,64 @@ class CommunityViewController: SQBaseViewController {
 
             let data = json?["data"]
             let index_list = data?["index_list"]
+            if self.page == 1 {
+                self.communityModelArr.removeAll()
+                self.recommendModelArr.removeAll()
+                self.columnModelArr.removeAll()
+            }
             for dict in index_list! {
                 let model = CommunityModel.yy_model(with: dict.1.dictionaryObject!)
                 self.communityModelArr.append(model!)
             }
             
-            let tag_list = json?["tag_list"]
-            for dict in tag_list! {
-                let model = RecommendCommunityModel.yy_model(with: dict.1.dictionaryObject!)
-                self.recommendModelArr.append(model!)
+            let tag_list = data?["tag_list"]
+            if self.recommendModelArr.isEmpty {
+                for dict in tag_list! {
+                    let model = RecommendCommunityModel.yy_model(with: dict.1.dictionaryObject!)
+                    self.recommendModelArr.append(model!)
+                }
             }
             
-            let icon_list = json?["icon_list"]
-            for dict in icon_list! {
-                let model = ColumnModel.yy_model(with: dict.1.dictionaryObject!)
-                self.columnModelArr.append(model!)
+            let icon_list = data?["icon_list"]
+            if self.columnModelArr.isEmpty {
+                for dict in icon_list! {
+                    let model = ColumnModel.yy_model(with: dict.1.dictionaryObject!)
+                    self.columnModelArr.append(model!)
+                }
             }
+            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
             self.tableView.reloadData()
         }
     }
     
     fileprivate func setupSubviews() {
-        tableView = UITableView(frame: view.bounds, style: .plain)
+        tableView = UITableView(frame: view.bounds, style: .grouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         view.addSubview(tableView)
         
         tableView.register(CommunityCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    fileprivate func setRefreshView() {
+        let footer = MJRefreshAutoNormalFooter.init { 
+            [unowned self] in
+            self.page += 1
+            self.loadData()
+        }
+        footer?.isAutomaticallyRefresh = true
+        footer?.isAutomaticallyHidden = true
+        tableView.mj_footer = footer
+        
+        let header = MJRefreshNormalHeader.init { 
+            [unowned self] in
+            self.page = 1
+            self.loadData()
+        }
+        tableView.mj_header = header
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,18 +114,30 @@ extension CommunityViewController: UITableViewDataSource {
         cell.model = model
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = Bundle.main.loadNibNamed("CommunityHeaderView", owner: nil, options: nil)?.last as! CommunityHeaderView
+        view.recommend_modelArr = recommendModelArr
+        view.column_modelArr = columnModelArr
+        return view
+    }
+    
 }
 
 extension CommunityViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = communityModelArr[indexPath.row]
         guard !(model.bigpic_arr?.isEmpty)! else {
-            return 100
+            return 120
         }
         return 200
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 200
     }
 }

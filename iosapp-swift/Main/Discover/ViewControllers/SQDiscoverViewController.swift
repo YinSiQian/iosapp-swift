@@ -77,6 +77,7 @@ extension SQDiscoverViewController: UICollectionViewDelegate {
 }
 
 extension SQDiscoverViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.childViewControllers.count
     }

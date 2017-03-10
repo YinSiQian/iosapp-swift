@@ -37,7 +37,7 @@ class RecommendCommunityModel: NSObject {
 class ColumnModel: NSObject {
     var icon_type: String?
     var icon: String?
-    var iocn_pic: String?
+    var icon_pic: String?
     var link_url: String?
     var sud_id: String?
 }

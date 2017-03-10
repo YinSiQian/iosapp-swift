@@ -10,7 +10,6 @@ import UIKit
 
 class CommunityHeaderView: UIView {
 
-   
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var column1_btn: UIButton!
@@ -33,32 +32,56 @@ class CommunityHeaderView: UIView {
     
     @IBOutlet weak var column5: UILabel!
     
-    var modelArr: [ColumnModel]? {
+    var column_modelArr: [ColumnModel]? {
         didSet {
+            
+            guard !(column_modelArr?.isEmpty)! else {
+                return
+            }
+            
             let labelArr = [column1,column2,column3,column4,column5]
             let btnArr = [column1_btn,column2_btn,column3_btn,column4_btn,column5_btn]
 
-            for (index, model) in (modelArr?.enumerated())! {
+            for (index, model) in (column_modelArr?.enumerated())! {
                 let label = labelArr[index]
-                label?.text = model.icon_type
+                label?.text = model.icon
                 
                 let btn = btnArr[index]
-                let urlString = model.iocn_pic
-                btn?.sd_setImage(with: urlString?.url(), for: .normal)
+                btn?.sd_setBackgroundImage(with: model.icon_pic?.url(), for: .normal)
             }
             
         }
     }
     
+    var recommend_modelArr: [RecommendCommunityModel]? {
+        didSet {
+            
+            guard !(recommend_modelArr?.isEmpty)! else {
+                return
+            }
+            let count = recommend_modelArr?.count
+            let length = 180 * count! + 20
+            
+            self.scrollView.contentSize = CGSize(width: length, height: 100)
+            for (index, model) in (recommend_modelArr?.enumerated())! {
+                let space = 20
+                let view = CommunityCardView(frame: CGRect(x: index * (space + 160) + space, y: 10, width: 160, height: 80))
+                self.scrollView.addSubview(view)
+                view.model = model
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupSubviews()
     }
     
     fileprivate func setupSubviews() {
         
-        let space = (screen_width - 4 * 40 - 20 - 20 - 20) / 4
+        let space = (screen_width - 5 * 40  - 20 - 20) / 4
         column1_btn.frame = CGRect(x: 20, y: 20, width: 40, height: 40)
-        column2_btn.frame = CGRect(x: space + column1_btn.frame.maxX + space, y: 20, width: 40, height: 40)
+        column2_btn.frame = CGRect(x: space + column1_btn.frame.maxX , y: 20, width: 40, height: 40)
         column3_btn.frame = CGRect(x: space + column2_btn.frame.maxX, y: 20, width: 40, height: 40)
         column4_btn.frame = CGRect(x: space + column3_btn.frame.maxX, y: 20, width: 40, height: 40)
         column5_btn.frame = CGRect(x: space + column4_btn.frame.maxX, y: 20, width: 40, height: 40)
