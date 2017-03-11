@@ -51,7 +51,7 @@ class BBSLayoutViewController: SQBaseViewController {
     private func setupSubviews() {
         var rect = self.view.bounds
         rect.size.width = 100
-        
+        rect.size.height = screen_height - 64 - 49
         listTableView = UITableView(frame: rect, style: .plain)
         listTableView.delegate = self
         listTableView.dataSource = self

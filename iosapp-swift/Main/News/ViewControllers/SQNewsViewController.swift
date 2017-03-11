@@ -104,6 +104,10 @@ extension SQNewsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let webVC = WebViewController()
+        let model = recommendModel?.feed?.entry?[indexPath.section - 1]
+        webVC.urlString = model?.url
+        navigationController?.pushViewController(webVC, animated: true)
     }
 }
 

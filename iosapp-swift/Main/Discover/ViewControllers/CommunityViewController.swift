@@ -68,7 +68,9 @@ class CommunityViewController: SQBaseViewController {
     }
     
     fileprivate func setupSubviews() {
-        tableView = UITableView(frame: view.bounds, style: .grouped)
+        var rect = view.bounds
+        rect.size.height = screen_height - 64
+        tableView = UITableView(frame: rect, style: .grouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -134,10 +136,17 @@ extension CommunityViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        let webVC = WebViewController()
+        let model = communityModelArr[indexPath.row]
+        webVC.urlString = model.appview_url
+        navigationController?.pushViewController(webVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 200
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
 }

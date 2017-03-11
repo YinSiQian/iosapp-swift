@@ -17,7 +17,6 @@ class SQDiscoverViewController: UIViewController {
         automaticallyAdjustsScrollViewInsets = false
         setChildViewController()
         setupSubviews()
-        // Do any additional setup after loading the view.
     }
     
     func setChildViewController() {
@@ -36,7 +35,7 @@ class SQDiscoverViewController: UIViewController {
         
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: screen_width, height: screen_height - 64 - 49)
+        layout.itemSize = CGSize(width: screen_width, height: screen_height - 64)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
@@ -44,10 +43,10 @@ class SQDiscoverViewController: UIViewController {
         
         var rect = view.bounds
         rect.origin.y = 64
-        rect.size.height = screen_height - 64 - 49
+        rect.size.height = screen_height - 64
         
         col = UICollectionView(frame: rect, collectionViewLayout: layout)
-        col.backgroundColor = UIColor.orange
+        col.backgroundColor = UIColor.white
         col.delegate = self
         col.dataSource = self
         col.isPagingEnabled = true
@@ -88,7 +87,6 @@ extension SQDiscoverViewController: UICollectionViewDataSource {
             subview.removeFromSuperview()
         }
         let vc = self.childViewControllers[indexPath.item]
-        vc.view.frame = cell.bounds
         cell.contentView.addSubview(vc.view)
         return cell
     }
