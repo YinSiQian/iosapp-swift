@@ -51,7 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             SQNetworkManager.shared.GET(urlString: start_page, parameters: nil) { (success, json, error) in
                 let imageURL = json?["data"]["photo"]
-                //print((imageURL?.string)! as String)
                 startView.imageView.kf.setImage(with: (imageURL?.string)!.url(), placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, type, url) in
                     UserDefaults.standard.set(image, forKey: ads_image)
                     self.window?.addSubview(startView)

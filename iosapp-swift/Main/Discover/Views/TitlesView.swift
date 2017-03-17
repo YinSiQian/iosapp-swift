@@ -39,14 +39,14 @@ class TitlesView: UIView {
         var length: CGFloat = 0.0
         let space: CGFloat = 30.0
         for (index, title) in titles.enumerated() {
-            let width = title.width(font: UIFont.boldSystemFont(ofSize: 14))
+            let width = title.width(font: UIFont.boldSystemFont(ofSize: 16))
             let button = UIButton(frame: CGRect(x: length, y: 0.0, width: width, height: 40.0))
             button.setTitle(title, for: .normal)
             button.setTitleColor(UIColor.white, for: .selected)
             button.setTitleColor(UIColor.init(hex6: 0xE9E9E9), for: .normal)
             button.tag = index + 1
             button.addTarget(self, action: #selector(TitlesView.clickButton(sender:)), for: .touchUpInside)
-            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             self.addSubview(button)
             self.btnArr.append(button)
             if index == 0 {

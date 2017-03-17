@@ -19,7 +19,6 @@ class SQBaseViewController: UIViewController {
     
     
     func loadData() {
-        print("super load request")
         guard SQNetworkManager.shared.isAccessNetwork()! else {
             self.view.addSubview(noNetworkAlert)
             return
