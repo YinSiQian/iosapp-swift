@@ -32,6 +32,7 @@ class RecommendCell: UITableViewCell {
         shadowView.layer.shouldRasterize = true
         self.selectionStyle = .none
         
+        
     }
 
     func setData(model: EntryModel?) {

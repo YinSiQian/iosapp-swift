@@ -106,6 +106,11 @@ class SQNewsViewController: SQBaseViewController {
 extension SQNewsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard indexPath.section != 0 else {
+            return
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
         let webVC = WebViewController()
         let model = recommendModel?.feed?.entry?[indexPath.section - 1]

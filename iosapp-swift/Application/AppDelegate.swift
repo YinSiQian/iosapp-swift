@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
 
-//        showLaunchImage()
-//        loadADImage()
+        showLaunchImage()
+        loadADImage()
         /*****************控件外观设置*************/
         UIApplication.shared.statusBarStyle = .lightContent
         UINavigationBar.appearance().tintColor = UIColor.white
@@ -40,23 +40,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func loadADImage() {
-        let startView = AdverticeImage.init(frame: UIScreen.main.bounds)
+        let startView = AdverticeImage.init(frame: UIScreen.main.bounds, location: .BottomLeftCorner, type: .round)
         if (UserDefaults.standard.object(forKey: ads_image) != nil) {
-            let image = UserDefaults.standard.object(forKey: ads_image) as! UIImage
+            let data = UserDefaults.standard.object(forKey: ads_image) as! Data
+            let image = UIImage(data: data)
             startView.imageView.image = image
             self.window?.addSubview(startView)
             self.launchImage?.removeFromSuperview()
             self.launchImage = nil
-            startView.coundown()
+            startView.countdown()
         } else {
             SQNetworkManager.shared.GET(urlString: start_page, parameters: nil) { (success, json, error) in
-                let imageURL = json?["data"]["photo"]
-                startView.imageView.kf.setImage(with: (imageURL?.string)!.url(), placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, type, url) in
-                    UserDefaults.standard.set(image, forKey: ads_image)
+                
+                let imageURL = json?["data"]["photo"].string!
+                print(imageURL!)
+                startView.imageView.kf.setImage(with: imageURL?.url(), placeholder: nil, options: [], progressBlock: nil, completionHandler: { (image, error, type, url) in
+                    
+                    let data = NSData(contentsOf: url!) as! Data
+                    UserDefaults.standard.set(data, forKey: ads_image)
                     self.window?.addSubview(startView)
                     self.launchImage?.removeFromSuperview()
                     self.launchImage = nil
-                    startView.coundown()
+                    startView.countdown()
                 })
             }
         }

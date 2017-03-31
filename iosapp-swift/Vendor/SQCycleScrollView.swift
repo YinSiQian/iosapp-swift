@@ -28,19 +28,11 @@ class SQCycleScrollView: UIView {
     
     fileprivate var timer: Timer?
     
-    var isAuto = true {
-        willSet {
-            invalidateTimer()
-            if newValue {
-                print(newValue)
-                createTimer()
-            }
-        }
-    }
-    
     fileprivate let reuse_id = "reuse_id"
     
     fileprivate var col: UICollectionView!
+    
+    fileprivate var pageControl: UIPageControl!
     
     var image_urls = [String]() {
         willSet {
@@ -66,6 +58,16 @@ class SQCycleScrollView: UIView {
         didSet {
             let auto = self.isAuto
             self.isAuto = auto
+        }
+    }
+    
+    var isAuto = true {
+        willSet {
+            invalidateTimer()
+            if newValue {
+                print(newValue)
+                createTimer()
+            }
         }
     }
     
@@ -111,6 +113,10 @@ class SQCycleScrollView: UIView {
         self.addSubview(col)
     
         col.register(CycleScrollCell.self, forCellWithReuseIdentifier: reuse_id)
+        
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: self.bounds.height - 50, width: self.bounds.width, height: 50))
+        self.addSubview(pageControl)
+        
     }
     
     func createTimer() {
@@ -197,7 +203,7 @@ extension SQCycleScrollView: UIScrollViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if isAuto {
-            self.timer?.fire()
+            createTimer()
         }
     }
 }
