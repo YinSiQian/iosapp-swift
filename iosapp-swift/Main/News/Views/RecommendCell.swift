@@ -32,7 +32,6 @@ class RecommendCell: UITableViewCell {
         shadowView.layer.shouldRasterize = true
         self.selectionStyle = .none
         
-        
     }
 
     func setData(model: EntryModel?) {
@@ -45,7 +44,7 @@ class RecommendCell: UITableViewCell {
                 self.cover.image = image!
             }
         }
-        
+    
         icon.sd_setImage(with: model?.icon_url?.url())
         title.text = model?.title
         subTitle.text = model?.subject

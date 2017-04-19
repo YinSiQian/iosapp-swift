@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -36,8 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         UINavigationBar.appearance().barTintColor = UIColor.init(hex6: 0x24CF5F)
         
+        AMapServices.shared().apiKey = "858288c5bf505e8a8893b9cad0e145c3"
+        
         return true
     }
+
     
     func loadADImage() {
         let startView = AdverticeImage.init(frame: UIScreen.main.bounds, location: .BottomLeftCorner, type: .round)
@@ -46,21 +50,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let image = UIImage(data: data)
             startView.imageView.image = image
             self.window?.addSubview(startView)
-            self.launchImage?.removeFromSuperview()
-            self.launchImage = nil
+            removedLaunchImage()
             startView.countdown()
         } else {
             SQNetworkManager.shared.GET(urlString: start_page, parameters: nil) { (success, json, error) in
                 
-                let imageURL = json?["data"]["photo"].string!
-                print(imageURL!)
-                startView.imageView.kf.setImage(with: imageURL?.url(), placeholder: nil, options: [], progressBlock: nil, completionHandler: { (image, error, type, url) in
+                let data = json?["data"]
+                let imageURL = data?["photo"]
+                guard let url = imageURL?.string else {
+                    self.removedLaunchImage()
+                    return
+                }
+                startView.imageView.kf.setImage(with: url.url(), placeholder: nil, options: [], progressBlock: nil, completionHandler: { (image, error, type, url) in
                     
-                    let data = NSData(contentsOf: url!) as! Data
+                    let data = NSData(contentsOf: url!)! as Data
                     UserDefaults.standard.set(data, forKey: ads_image)
                     self.window?.addSubview(startView)
-                    self.launchImage?.removeFromSuperview()
-                    self.launchImage = nil
+                    self.removedLaunchImage()
                     startView.countdown()
                 })
             }
@@ -85,6 +91,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.addSubview(launchImage!)
     }
 
+    func removedLaunchImage() {
+        self.launchImage?.removeFromSuperview()
+        self.launchImage = nil
+    }
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

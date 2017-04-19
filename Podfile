@@ -13,5 +13,7 @@ pod 'SwiftyJSON', '~> 3.1.3'
 pod 'SnapKit', '~> 3.1.2'
 pod 'SDWebImage', '~> 4.0.0'
 pod 'MJRefresh', '~> 3.1.12'
-
+pod 'AMapLocation', '~> 2.3.0'
+pod 'AMap3DMap', '~> 4.6.1'
+pod 'AMapSearch', '~> 4.5.0'
 end

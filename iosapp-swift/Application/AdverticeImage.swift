@@ -63,6 +63,7 @@ class AdverticeImage: UIView {
         self.type = type
         self.changeLocation()
         self.changeStyle()
+        
     }
     
     fileprivate func setupSubviews() {
@@ -76,10 +77,6 @@ class AdverticeImage: UIView {
         timeBtn.backgroundColor = UIColor.orange
         timeBtn.addTarget(self, action: #selector(AdverticeImage.jumpAD), for: .touchUpInside)
         self.addSubview(timeBtn)
-        
-       // self.location = .TopRightCorner
-       // self.type = .normal
-
         
     }
     

@@ -16,6 +16,8 @@ class SQNewsViewController: SQBaseViewController {
     var recommendModel: RecommendModel?
     var page = 1
     
+    var locationManager: AMapLocationManager!
+    var search: AMapSearchAPI!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +25,31 @@ class SQNewsViewController: SQBaseViewController {
         setRefreshView()
         loadData()
         loadRecommendData()
+        //mapConfig()
     }
 
+    
+    fileprivate func mapConfig() {
+        locationManager = AMapLocationManager()
+        locationManager.delegate = self as AMapLocationManagerDelegate
+        
+        search = AMapSearchAPI()
+        search.delegate = self as AMapSearchDelegate
+        
+        locationManager.pausesLocationUpdatesAutomatically = false
+        if #available(iOS 9.0, *) {
+            locationManager.allowsBackgroundLocationUpdates = true
+        }
+        locationManager.locatingWithReGeocode = true
+        locationManager.startUpdatingLocation()
+    }
+    
     override func loadData() {
-        SQNetworkManager.shared.GET(urlString: home_city_info, parameters: nil) { [unowned self] (isSuccess, json, error) in
+        SQNetworkManager.shared.GET(urlString: home_city_info, parameters: nil) { [weak self] (isSuccess, json, error) in
             if isSuccess {
                 let data = json?["data"]
-                self.nearModel = NearRecommendModel.yy_model(with: (data?.dictionaryObject!)!)
-                self.tableView.reloadData()
+                self?.nearModel = NearRecommendModel.yy_model(with: (data?.dictionaryObject!)!)
+                self?.tableView.reloadData()
             }
         }
     }
@@ -38,19 +57,19 @@ class SQNewsViewController: SQBaseViewController {
     func loadRecommendData() {
         let urlString = String(format: home_feed, page)
         SQNetworkManager.shared.GET(urlString: urlString, parameters: nil) {
-            [unowned self] (success, json, error) in
+           [weak self]  (success, json, error) in
             if success {
                 let data = json?["data"]
-                if self.page == 1 {
-                    self.recommendModel = RecommendModel.yy_model(with: (data?.dictionaryObject)!)
-                    self.setHeaderViewData()
+                if self?.page == 1 {
+                    self?.recommendModel = RecommendModel.yy_model(with: (data?.dictionaryObject)!)
+                    self?.setHeaderViewData()
                 } else {
                     let model = RecommendModel.yy_model(with: (data?.dictionaryObject)!)
                     for item in (model?.feed?.entry!)! {
-                        self.recommendModel?.feed?.entry?.append(item)
+                        self?.recommendModel?.feed?.entry?.append(item)
                     }
-                    self.tableView.mj_footer.endRefreshing()
-                    self.tableView.reloadData()
+                    self?.tableView.mj_footer.endRefreshing()
+                    self?.tableView.reloadData()
                 }
             }
         }
@@ -64,9 +83,9 @@ class SQNewsViewController: SQBaseViewController {
     
     func setRefreshView() {
         let footer = MJRefreshAutoNormalFooter.init {
-            [unowned self] in
-            self.page += 1
-            self.loadRecommendData()
+            [weak self] in
+            self?.page += 1
+            self?.loadRecommendData()
         }
         tableView.mj_footer = footer
         footer?.isAutomaticallyHidden = true
@@ -86,12 +105,12 @@ class SQNewsViewController: SQBaseViewController {
         tableView.register(UINib.init(nibName: "RecommendCell", bundle: Bundle.main), forCellReuseIdentifier: "recommendCell")
         
         let headerView = RecommendHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: screen_width, height: 200)) {
-            [unowned self]
+            [weak self]
             (index)  in
             let vc = WebViewController()
-            let model = self.recommendModel?.slide?[index]
+            let model = self?.recommendModel?.slide?[index]
             vc.urlString = model?.url
-            self.navigationController?.pushViewController(vc, animated: true)
+            self?.navigationController?.pushViewController(vc, animated: true)
         }
         tableView.tableHeaderView = headerView
     }
@@ -99,6 +118,28 @@ class SQNewsViewController: SQBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+}
+
+extension SQNewsViewController: AMapSearchDelegate {
+    func onReGeocodeSearchDone(_ request: AMapReGeocodeSearchRequest!, response: AMapReGeocodeSearchResponse!) {
+        if response.regeocode == nil {
+            return
+        }
+        print(response.regeocode.formattedAddress)
+    }
+}
+
+extension SQNewsViewController: AMapLocationManagerDelegate {
+    
+    func amapLocationManager(_ manager: AMapLocationManager!, didUpdate location: CLLocation!) {
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
+        let regeo = AMapReGeocodeSearchRequest()
+        regeo.location = AMapGeoPoint.location(withLatitude: CGFloat(lat), longitude: CGFloat(lon))
+        regeo.requireExtension = true
+        search.aMapReGoecodeSearch(regeo)
     }
     
 }

@@ -13,5 +13,9 @@
 #import "YYImage.h"
 #import <SDWebImage/SDWebImage-umbrella.h>
 #import <MJRefresh/MJRefresh.h>
+#import <AMapLocationKit/AMapLocationKit.h>
+#import <MAMapKit/MAMapKit.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
 
 #endif /* OC_Bridging_Header_h */
